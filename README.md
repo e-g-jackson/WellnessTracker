@@ -12,10 +12,10 @@ Our app will allow users to log in and input information such as weight, nutriti
 
 ### Development Team:
 
--Jenny - React & Wirefram
--Jodi - API & Routes
--Erik - Charting/Graphing & Database
--Olayinka - Research & Front End
++ **Jenny** - *React & Wireframe*
++ **Jodi** - *API & Routes*
++ **Erik** - *Charting/Graphing & Database*
++ **Olayinka** - *Research & Front End*
 
 ### Schedule:
 
