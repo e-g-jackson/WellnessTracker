@@ -8,7 +8,23 @@ Our app will allow users to log in and input information such as weight, nutriti
 
 ### Layouts:
 
+##### Login Screen
 
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Login.JPG)
+
+##### Information Input
+
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/InfoInput.JPG)
+
+##### Display Information
+
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/CaloriesInfo.JPG)
+
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/NutritionalInfo.JPG)
+
+##### Track Progress
+
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Progress.JPG)
 
 ### Development Team:
 
@@ -19,10 +35,10 @@ Our app will allow users to log in and input information such as weight, nutriti
 
 ### Schedule:
 
-**Deliverables #1** *(23 February, 2019)* - Finalize Plan and design objectives.
++ **Deliverables #1** *(23 February, 2019)* - Finalize Plan and design objectives.
 
-**Deliverables #2** *(2 March, 2019)* - Have a working version of the MVP.
++ **Deliverables #2** *(2 March, 2019)* - Have a working version of the MVP.
 
-**Deliverables #3** *(9 March, 2019)* - Polish Project, add any final functionality to app and plan for presentation. 
++ **Deliverables #3** *(9 March, 2019)* - Polish Project, add any final functionality to app and plan for presentation. 
 
-**FINAL PRESENTATION** *(16 March, 2019)*
++ **FINAL PRESENTATION** *(16 March, 2019)*
