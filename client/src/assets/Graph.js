@@ -62,6 +62,7 @@ const chartConfigs = {
         }]
     }
 };
+    
 
 // Step 8 - Creating the DOM element to pass the react-fusioncharts component
 class Graph extends React.Component {
