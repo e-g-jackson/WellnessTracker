@@ -17,12 +17,15 @@ app.use(logger("dev"));
 
 mongoose.connect(MONGODB_URI);
 
-const dbRoute = require(path.join(__dirname, "./models/book.js"));
+// const dbRoute = require(path.join(__dirname, "./models/"));
 
 if(process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+app.use('/favicon.ico', (req, res)=>{
+    res.sendFile(path.join(__dirname, './client/build/favicon.ico'))
+})
 
 app.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));

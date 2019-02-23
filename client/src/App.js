@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./assets/Header";
-import Body from "./assets/Body"
+import Graph from "./assets/Graph";
+import Body from "./assets/Body";
 import './App.css';
 import Login from './assets/Login';
 import Profile from './assets/Profile';
@@ -15,7 +16,8 @@ class App extends Component {
       <div>
         <Navbar />
         <Header />
-      </div>
+
+        </div>
     );
   };
 };
