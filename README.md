@@ -3,15 +3,19 @@
 
 
 ###Overview:
-    Our app will allow users to log in and input information such as weight, nutritional information, and exercise stats. The app will be able to calculate useful metrics, such as BMI and plot all of this data to a timeline. Using this data, the user can set goals and track their progress over time.
+
+Our app will allow users to log in and input information such as weight, nutritional information, and exercise stats. The app will be able to calculate useful metrics, such as BMI and plot all of this data to a timeline. Using this data, the user can set goals and track their progress over time.
 
 ###Layouts:
 
+
+
 ###Development Team:
-    Jenny - React & Wirefram
-    Jodi - API & Routes
-    Erik - Charting/Graphing & Database
-    Olayinka - Research & Front End
+
+Jenny - React & Wirefram
+Jodi - API & Routes
+Erik - Charting/Graphing & Database
+Olayinka - Research & Front End
 
 ###Schedule:
 
