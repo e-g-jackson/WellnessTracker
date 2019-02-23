@@ -12,27 +12,27 @@ Our app will allow users to log in and input information such as weight, nutriti
 
 Upon navigating to the page, the user will be first greeted with a login screen, to ensure that their data is saved and recalled properly and kept private.
 
-![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Login.JPG)
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Login.JPG "Login Screen")
 
 ### Information Input
 
 Once logged in, the user can begin to input the data that they wish to track.
 
-![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/InfoInput.JPG)
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/InfoInput.JPG "Input Information")
 
 ### Display Information
 
 Once entered into the database, the information will be graphed and displayed.
 
-![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/CaloriesInfo.JPG)
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/CaloriesInfo.JPG "Track Calories")
 
-![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/NutritionalInfo.JPG)
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/NutritionalInfo.JPG "Track Nutrition")
 
 ### Track Progress
 
 Over time, data will accumulate and allow the user to track their progress towards meeting any goals that they've set for themselves.
 
-![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Progress.JPG)
+![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Progress.JPG "Track Progress")
 
 ## Development Team:
 
