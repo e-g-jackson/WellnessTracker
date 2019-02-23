@@ -2,25 +2,25 @@
 [Deployed Website](https://wellness-tracker-app.herokuapp.com/)
 
 
-### Overview:
+## Overview:
 
 Our app will allow users to log in and input information such as weight, nutritional information, and exercise stats. The app will be able to calculate useful metrics, such as BMI and plot all of this data to a timeline. Using this data, the user can set goals and track their progress over time.
 
-### Layouts:
+## Layouts:
 
-#### Login Screen
+### Login Screen
 
 Upon navigating to the page, the user will be first greeted with a login screen, to ensure that their data is saved and recalled properly and kept private.
 
 ![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Login.JPG)
 
-#### Information Input
+### Information Input
 
 Once logged in, the user can begin to input the data that they wish to track.
 
 ![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/InfoInput.JPG)
 
-#### Display Information
+### Display Information
 
 Once entered into the database, the information will be graphed and displayed.
 
@@ -28,20 +28,20 @@ Once entered into the database, the information will be graphed and displayed.
 
 ![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/NutritionalInfo.JPG)
 
-#### Track Progress
+### Track Progress
 
 Over time, data will accumulate and allow the user to track their progress towards meeting any goals that they've set for themselves.
 
 ![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Progress.JPG)
 
-### Development Team:
+## Development Team:
 
 + **Jenny** - *React & Wireframe*
 + **Jodi** - *API & Routes*
 + **Erik** - *Charting/Graphing & Database*
 + **Olayinka** - *Research & Front End*
 
-### Schedule:
+## Schedule:
 
 + **Deliverables #1** *(23 February, 2019)* - Finalize Plan and design objectives.
 
