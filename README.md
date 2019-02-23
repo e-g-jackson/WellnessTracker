@@ -1,8 +1,8 @@
 # WELLNESS TRACKER APP
 
 ###Overview:
-⋅⋅*this is a list
-⋅⋅*this is more list
+    *this is a list
+    *this is more list
 
 ###Layouts:
 
