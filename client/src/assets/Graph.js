@@ -26,38 +26,39 @@ const chartConfigs = {
     dataSource: {
         // Chart Configuration
         "chart": {
-            "caption": "Countries With Most Oil Reserves [2017-18]",
-            "subCaption": "In MMbbl = One Million barrels",
-            "xAxisName": "Country",
-            "yAxisName": "Reserves (MMbbl)",
-            "numberSuffix": "K",
+            "caption": "Weight over Time",
+            "subCaption": "in lbs",
+            "xAxisName": "Time",
+            "yAxisName": "Weight (in lbs)",
+            "yAxisMinValue": "150",
+            "numberSuffix": "lbs",
             "theme": "fusion",
         },
         // Chart Data
         "data": [{
-            "label": "Venezuela",
-            "value": "290"
+            "label": "Jan 01, 2019",
+            "value": "175"
         }, {
-            "label": "Saudi",
-            "value": "260"
+            "label": "Jan 05, 2019",
+            "value": "170"
         }, {
-            "label": "Canada",
-            "value": "180"
+            "label": "Jan 10, 2019",
+            "value": "165"
         }, {
-            "label": "Iran",
-            "value": "140"
+            "label": "Jan 15, 2019",
+            "value": "170"
         }, {
-            "label": "Russia",
-            "value": "115"
+            "label": "Jan 20, 2019",
+            "value": "167"
         }, {
-            "label": "UAE",
-            "value": "100"
+            "label": "Jan 25, 2019",
+            "value": "165"
         }, {
-            "label": "US",
-            "value": "30"
+            "label": "Jan 30, 2019",
+            "value": "174"
         }, {
-            "label": "China",
-            "value": "30"
+            "label": "Feb 05, 2019",
+            "value": "170"
         }]
     }
 };
