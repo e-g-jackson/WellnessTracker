@@ -1,4 +1,4 @@
-module.exports = (app) => {
+module.exports = (app, path) => {
     app.use('/favicon.ico', (req, res)=>{
         res.sendFile(path.join(__dirname, './client/build/favicon.ico'))
     }),

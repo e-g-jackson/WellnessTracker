@@ -23,13 +23,7 @@ if(process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-app.use('/favicon.ico', (req, res)=>{
-    res.sendFile(path.join(__dirname, './client/build/favicon.ico'))
-})
-
-app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+require('./routes/htmlRoutes')(app, path);
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`)
