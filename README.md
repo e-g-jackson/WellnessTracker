@@ -19,10 +19,10 @@ Olayinka - Research & Front End
 
 ###Schedule:
 
-    **Deliverables #1 ** *(23 February, 2019)* - Finalize Plan and design objectives.
+**Deliverables #1** *(23 February, 2019)* - Finalize Plan and design objectives.
 
-    **Deliverables #2** *(2 March, 2019)* - Have a working version of the MVP.
+**Deliverables #2** *(2 March, 2019)* - Have a working version of the MVP.
 
-    **Deliverables #3** *(9 March, 2019)* - Polish Project, add any final functionality to app and plan for presentation. 
+**Deliverables #3** *(9 March, 2019)* - Polish Project, add any final functionality to app and plan for presentation. 
 
-    **FINAL PRESENTATION** *(16 March, 2019)*
+**FINAL PRESENTATION** *(16 March, 2019)*
