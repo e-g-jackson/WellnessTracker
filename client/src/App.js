@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from "./assets/Header";
 import Graph from "./assets/Graph";
 import Body from "./assets/Body";
-import './App.css';
 import Login from './assets/Login';
 import Profile from './assets/Profile';
 import Food from './assets/Food';
@@ -16,6 +15,7 @@ class App extends Component {
       <div>
         <Navbar />
         <Header />
+        <Food />
 
         </div>
     );

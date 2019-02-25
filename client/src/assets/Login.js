@@ -1,38 +1,62 @@
-import React from "react";
+// import React, { Component } from "react";
+// import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+// import "./Login.css";
 
-class Login extends React.Component {
-    render() {
-        return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                        <div className="card">
-                            <div className="card-body">
-                                <h2>Login</h2>
-                                <form>
-                                    <div className="form-group">
-                                        <label for="username">Username:</label>
-                                        <input type="username" class="form-control" id="username" aria-describedby="username" placeholder="Enter Username"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password">Password:</label>
-                                        <input type="password" class="form-control" id="password" placeholder="Enter Password"/>
-                                    </div>
-                                    <div className="g-signin2" data-onsuccess="onSignIn">
-                                    <button type="button" className="btn btn-secondary">Sign In</button>
-                                    </div>
-                                    <br/>
-                                    <button type="button" className="btn btn-secondary">Register</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3"></div>
-                </div>
-            </div>
-        );
-    };
-};
+// export default class Login extends Component {
+//   constructor(props) {
+//     super(props);
 
-export default Login;
+//     this.state = {
+//       email: "",
+//       password: ""
+//     };
+//   }
+
+//   validateForm() {
+//     return this.state.email.length > 0 && this.state.password.length > 0;
+//   }
+
+//   handleChange = event => {
+//     this.setState({
+//       [event.target.id]: event.target.value
+//     });
+//   }
+
+//   handleSubmit = event => {
+//     event.preventDefault();
+//   }
+
+//   render() {
+//     return (
+//       <div className="Login">
+//         <form onSubmit={this.handleSubmit}>
+//           <FormGroup controlId="email" bsSize="large">
+//             <ControlLabel>Email</ControlLabel>
+//             <FormControl
+//               autoFocus
+//               type="email"
+//               value={this.state.email}
+//               onChange={this.handleChange}
+//             />
+//           </FormGroup>
+//           <FormGroup controlId="password" bsSize="large">
+//             <ControlLabel>Password</ControlLabel>
+//             <FormControl
+//               value={this.state.password}
+//               onChange={this.handleChange}
+//               type="password"
+//             />
+//           </FormGroup>
+//           <Button
+//             block
+//             bsSize="large"
+//             disabled={!this.validateForm()}
+//             type="submit"
+//           >
+//             Login
+//           </Button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
