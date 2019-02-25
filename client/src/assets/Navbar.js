@@ -3,20 +3,20 @@ import React from "react";
 class Navbar extends React.Component {
     render() {
         return (
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a className="nav-link" href="/profile">Profile</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Food Tracker</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/food">Food Tracker</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Food Types</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/types">Food Types</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Progress</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/progress">Progress</a>
                         </li>
                     </ul>
                 </div>
