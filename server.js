@@ -23,6 +23,12 @@ if(process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
+app.post('/db/food', (req, res) => {
+    // dbRoute.create(req.body).then(() =>{
+    //     res.send("Book Saved!")
+    // }).catch(err => {throw err;})
+    console.log(req.body)
+})
 require('./routes/htmlRoutes')(app);
 require('./routes/dataRoutes')(app, db);
 

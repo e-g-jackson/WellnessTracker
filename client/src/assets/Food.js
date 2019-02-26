@@ -4,12 +4,16 @@ import $ from "jquery";
 class Food extends React.Component {
     state = {
         foodName: "",
-        meal: "",
-        foodType: ""
+        meal: "Breakfast",
+        foodType: "Protein"
     }
 
     handleClickEvent(){
-        console.log(this.state)
+        const data = this.state;
+        console.log(data);
+        $.post("./db/food", data, (response) => {
+            console.log(response);
+        })
     }
     
     render() {
@@ -76,9 +80,6 @@ class Food extends React.Component {
                                         type="button" 
                                         className="btn btn-secondary" 
                                         onClick = {() => {
-                                            // const foodName = document.getElementById('foodName');
-                                            // const meal = document.getElementById('meal');
-                                            // const foodType = document.getElementById('foodType');
                                             this.handleClickEvent();
                                         }}>
                                         Save
