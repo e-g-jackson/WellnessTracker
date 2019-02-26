@@ -8,10 +8,11 @@ class Food extends React.Component {
         foodType: "Protein"
     }
 
-    handleClickEvent(){
+    handleClickEvent(e){
+        e.preventDefault();
         const data = this.state;
         console.log(data);
-        $.post("./db/food", data, (response) => {
+        $.post("/db/food", data, (response) => {
             console.log(response);
         })
     }
@@ -26,7 +27,7 @@ class Food extends React.Component {
                     <h3>Current Date</h3>
                         <div className="card">
                             <div className="card-body">
-                                <form>
+                                <form onSubmit = {(event) => this.handleClickEvent(event)}>
                                     <div className="form-group">
                                         <label>Food:</label>
                                         <input 
@@ -77,11 +78,12 @@ class Food extends React.Component {
                                     <br/>
                                     <br/>
                                     <button 
-                                        type="button" 
+                                        type="submit" 
                                         className="btn btn-secondary" 
-                                        onClick = {() => {
-                                            this.handleClickEvent();
-                                        }}>
+                                        // onClick = {() => {
+                                        //     this.handleClickEvent();
+                                        // }}>
+                                        >
                                         Save
                                     </button>
                                 </form>

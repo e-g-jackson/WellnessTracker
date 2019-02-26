@@ -3,15 +3,10 @@ module.exports = (app, db) => {
     //     res.send('filler text')
     // })
 
-    // app.post('/db/food', function(req, res){
-    //     console.log(req.body)
-    //     // db.create()
-    //     res.send('Data Received!')
-    // });
-    app.post('/db/food', (req, res) => {
-        // dbRoute.create(req.body).then(() =>{
-        //     res.send("Book Saved!")
-        // }).catch(err => {throw err;})
+    app.post('/db/food', function(req, res){
         console.log(req.body)
-    })
+        db.create(req.body).then(() =>{
+        res.send('Data Received!').catch(err => {throw err})
+        })
+    });
 };
