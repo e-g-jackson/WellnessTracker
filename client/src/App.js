@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./assets/Header";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import Header from "./components/Header";
 // import Graph from "./assets/Graph";
 // import Body from "./assets/Body";
 import './App.css';
@@ -8,10 +8,10 @@ import './App.css';
 // import Profile from './assets/Profile';
 // import Food from './assets/Food';
 // import Types from './assets/Types';
-// import Progress from './assets/Progress';
-import Navbar from './assets/Navbar';
-import Login from "./containers/Login";
-import AppliedRoute from "./components/AppliedRoute";
+//import Progress from './components/Progress';
+//import Navbar from './components/Navbar';
+import Login from "./components/Login";
+import Route from "./components/AppliedRoutes";
 import NoMatch from "./components/NoMatch";
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
 
     this.state = {
       isAuthenticated: false
-    };
+    }
   }
 
   userHasAuthenticated = authenticated => {
@@ -32,19 +32,22 @@ class App extends Component {
       userHasAuthenticated: this.userHasAuthenticated
     };
     return (
-      <div>
+      <Router>
+
+      
+        <div>
         
-          <Navbar />
+          {/* <Navbar />*/}
           <Header />
-          {/* <Routes childProps={childProps} /> */}
+          {/* <Route childProps={childProps} /> */}
           <Switch>
-            <AppliedRoute path="/" exact component={Login} props={childProps} />
-            <AppliedRoute path="/login" exact component={Login} props={childProps} />
-            <AppliedRoute component={NoMatch} />
+            <Route exact path="/" component={Login} props={childProps} />
+            <Route exact path="/login" component={Login} props={childProps} />
+            <Route component={NoMatch} />
           </Switch>;
 
-        
       </div>
+      </Router>
     );
   };
 };
