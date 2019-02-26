@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from "./assets/Header";
-import Graph from "./assets/Graph";
-import Body from "./assets/Body";
-import Login from './assets/Login';
-import Profile from './assets/Profile';
-import Food from './assets/Food';
-import Types from './assets/Types';
-import Progress from './assets/Progress';
-import Navbar from './assets/Navbar';
-import './App.css';
 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Header from "./components/Header";
+import Graph from "./components/Graph";
+import Login from './components/Login';
+import Profile from './components/Profile';
+import Food from './components/Food';
+import Types from './components/Types';
+import Progress from './components/Progress';
+import Navbar from './components/Navbar';
+import Route from "./components/AppliedRoutes";
+import NoMatch from "./components/NoMatch";
 
 class App extends Component {
   constructor(props) {
