@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch } from "react-router-dom";
-import Header from "./components/Header";
-// import Graph from "./assets/Graph";
-// import Body from "./assets/Body";
-// import './App.css';
-// import Login from './assets/Login';
-// import Profile from './assets/Profile';
-// import Food from './assets/Food';
-// import Types from './assets/Types';
-//import Progress from './components/Progress';
-//import Navbar from './components/Navbar';
-import Login from "./components/Login";
-import Route from "./components/AppliedRoutes";
-import NoMatch from "./components/NoMatch";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Header from "./assets/Header";
+import Graph from "./assets/Graph";
+import Body from "./assets/Body";
+import Login from './assets/Login';
+import Profile from './assets/Profile';
+import Food from './assets/Food';
+import Types from './assets/Types';
+import Progress from './assets/Progress';
+import Navbar from './assets/Navbar';
+import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -33,20 +31,50 @@ class App extends Component {
     };
     return (
       <Router>
-
-      
         <div>
-        
-          {/* <Navbar />*/}
+          <Navbar />
           <Header />
-          {/* <Route childProps={childProps} /> */}
-          <Switch>
-            <Route exact path="/" component={Login} props={childProps} />
-            <Route exact path="/login" component={Login} props={childProps} />
-            <Route component={NoMatch} />
-          </Switch>;
 
-      </div>
+          <Route exact path = "/login" render = {() => {
+            return(
+              <Login />
+            )
+          }}/>
+
+          <Route exact path = "/profile" render = {() => {
+            return(
+              <Profile />
+            )
+          }}/>
+
+          <Route exact path = "/food" render = {() => {
+            return(
+              <Food />
+            )
+          }}/>
+
+          <Route exact path = "/types" render = {() => {
+            return(
+              <Types />
+            )
+          }}/>
+
+          <Route exact path = "/progress" render = {() => {
+            return(
+              <Progress />
+            )
+          }}/>
+
+          <Route exact path = "/graph" render = {() => {
+            return(
+              <div>
+                <Graph />
+                <Body />
+              </div>
+            )
+          }} />
+        </div>
+        
       </Router>
     );
   };

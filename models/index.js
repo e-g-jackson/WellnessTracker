@@ -1,3 +1,4 @@
 module.exports = [
-    "./weight.js"
+    "./weight.js",
+    "./food.js"
 ]
