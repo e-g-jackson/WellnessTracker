@@ -1,11 +1,14 @@
 import React from "react";
+import './Header.css';
 
 class Header extends React.Component{
     render(){
         return(
-            <div className = "jumbotron text-center">
-                <div>
-                    <h1>WellnessTracker</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="logo"><i class="fas fa-pepper-hot"></i> Wellness Tracker</h1>
+                    </div>
                 </div>
             </div>
         )
