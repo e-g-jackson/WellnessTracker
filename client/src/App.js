@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import Graph from "./components/Graph";
 import Login from './components/Login';
@@ -30,21 +31,50 @@ class App extends Component {
     };
     return (
       <Router>
-
-      
         <div>
-        
           <Navbar />
           <Header />
-          <Food />
-          {/* <Route childProps={childProps} /> */}
-          <Switch>
-            <Route exact path="/" component={Login} props={childProps} />
-            <Route exact path="/login" component={Login} props={childProps} />
-            <Route component={NoMatch} />
-          </Switch>;
 
-      </div>
+          <Route exact path = "/login" render = {() => {
+            return(
+              <Login />
+            )
+          }}/>
+
+          <Route exact path = "/profile" render = {() => {
+            return(
+              <Profile />
+            )
+          }}/>
+
+          <Route exact path = "/food" render = {() => {
+            return(
+              <Food />
+            )
+          }}/>
+
+          <Route exact path = "/types" render = {() => {
+            return(
+              <Types />
+            )
+          }}/>
+
+          <Route exact path = "/progress" render = {() => {
+            return(
+              <Progress />
+            )
+          }}/>
+
+          <Route exact path = "/graph" render = {() => {
+            return(
+              <div>
+                <Graph />
+                <Body />
+              </div>
+            )
+          }} />
+        </div>
+        
       </Router>
     );
   };

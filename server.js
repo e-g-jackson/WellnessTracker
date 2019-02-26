@@ -1,7 +1,7 @@
 // const $ = require('jquery');
 const express = require('express');
 const path = require('path');
-const mongo = require('mongodb');
+// const mongo = require('mongodb');
 const mongoose = require('mongoose');
 var logger = require('morgan');
 // const axios = require('axios');
@@ -17,19 +17,14 @@ app.use(logger("dev"));
 
 mongoose.connect(MONGODB_URI);
 
-// const dbRoute = require(path.join(__dirname, "./models/"));
+const db = require(path.join(__dirname, "./models/"));
 
 if(process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-app.use('/favicon.ico', (req, res)=>{
-    res.sendFile(path.join(__dirname, './client/build/favicon.ico'))
-})
-
-app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+require('./routes/htmlRoutes')(app);
+require('./routes/dataRoutes')(app, db);
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`)
