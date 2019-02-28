@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import $ from "jquery";
 
 class Food extends React.Component {
@@ -12,9 +13,20 @@ class Food extends React.Component {
         e.preventDefault();
         const data = this.state;
         console.log(data);
-        $.post("/db/food", data, (response) => {
-            console.log(response);
-        })
+
+        // $.post("http://localhost:3001/db/food", data, (response) => {
+        //     console.log(response);
+        // })
+
+        fetch('http://localhost:3001/db/food', {
+            method: 'POST',
+            body: data
+        }).catch(err => {throw err})
+
+        // axios.post("http://localhost:3001/db/food", {data})
+        //     .then((response)=>{
+        //         console.log(response)
+        //     }).catch((error) => {throw error;})
     }
     
     render() {

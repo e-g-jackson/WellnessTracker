@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from "./assets/Header";
-import Graph from "./assets/Graph";
-import Body from "./assets/Body";
-import Login from './assets/Login';
-import Profile from './assets/Profile';
-import Food from './assets/Food';
-import Types from './assets/Types';
-import Progress from './assets/Progress';
-import Navbar from './assets/Navbar';
-import './App.css';
+import Header from "./components/Header";
+import Graph from "./components/Graph";
+import Login from './components/Login';
+import Profile from './components/Profile';
+import Food from './components/Food';
+import Types from './components/Types';
+import Progress from './components/Progress';
+import Navbar from './components/Navbar';
+// import './App.css';
 
 
 class App extends Component {
@@ -25,10 +24,10 @@ class App extends Component {
     this.setState({ isAuthenticated: authenticated });
   }
   render() {
-    const childProps = {
-      isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
-    };
+    // const childProps = {
+    //   isAuthenticated: this.state.isAuthenticated,
+    //   userHasAuthenticated: this.userHasAuthenticated
+    // };
     return (
       <Router>
         <div>
@@ -69,7 +68,6 @@ class App extends Component {
             return(
               <div>
                 <Graph />
-                <Body />
               </div>
             )
           }} />
