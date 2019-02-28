@@ -9,8 +9,7 @@ import Food from './components/Food';
 import Types from './components/Types';
 import Progress from './components/Progress';
 import Navbar from './components/Navbar';
-import Route from "./components/AppliedRoutes";
-import NoMatch from "./components/NoMatch";
+
 
 class App extends Component {
   constructor(props) {
@@ -34,47 +33,47 @@ class App extends Component {
         <div>
           <Navbar />
           <Header />
+          <Login />
 
-          <Route exact path = "/login" render = {() => {
-            return(
+          <Route exact path="/login" render={() => {
+            return (
               <Login />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/profile" render = {() => {
-            return(
+          <Route exact path="/profile" render={() => {
+            return (
               <Profile />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/food" render = {() => {
-            return(
+          <Route exact path="/food" render={() => {
+            return (
               <Food />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/types" render = {() => {
-            return(
+          <Route exact path="/types" render={() => {
+            return (
               <Types />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/progress" render = {() => {
-            return(
+          <Route exact path="/progress" render={() => {
+            return (
               <Progress />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/graph" render = {() => {
-            return(
+          <Route exact path="/graph" render={() => {
+            return (
               <div>
                 <Graph />
-                <Body />
               </div>
             )
           }} />
         </div>
-        
+
       </Router>
     );
   };
