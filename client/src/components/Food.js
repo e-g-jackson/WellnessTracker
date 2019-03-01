@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import $ from "jquery";
+// import $ from "jquery";
 
 class Food extends React.Component {
     state = {
@@ -18,15 +18,17 @@ class Food extends React.Component {
         //     console.log(response);
         // })
 
-        fetch('http://localhost:3001/db/food', {
-            method: 'POST',
-            body: data
-        }).catch(err => {throw err})
+        // fetch('http://localhost:3001/db/food', {
+        //     method: 'POST',
+        //     body: data
+        // }).catch(err => {throw err})
 
-        // axios.post("http://localhost:3001/db/food", {data})
-        //     .then((response)=>{
-        //         console.log(response)
-        //     }).catch((error) => {throw error;})
+        axios.defaults.baseURL = 'http://localhost:3001';
+
+        axios.post("/db/food", data)
+            .then((response)=>{
+                console.log(response)
+            }).catch((error) => {throw error;})
     }
     
     render() {

@@ -44,8 +44,8 @@ if(process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-require('./routes/htmlRoutes')(app);
 require('./routes/dataRoutes')(app, db);
+require('./routes/htmlRoutes')(app);
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`)
