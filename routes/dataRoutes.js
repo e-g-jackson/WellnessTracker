@@ -3,6 +3,8 @@ module.exports = (app, db) => {
     //     res.send('filler text')
     // })
 
+    // app.get('/api/helper', function(req, res){});
+    
     app.post('/db/food', function(req, res){
         console.log(req.body)
         db.create(req.body).then(() =>{

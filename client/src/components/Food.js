@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+// import helper from "../../../routes/dataHelper"
 // import $ from "jquery";
 
 class Food extends React.Component {
@@ -22,8 +23,20 @@ class Food extends React.Component {
         //     method: 'POST',
         //     body: data
         // }).catch(err => {throw err})
+        // const helper = () => axios.get()
+        
+        const production  = 'https://wellness-tracker-app.herokuapp.com/';
+        const development = 'http://localhost:3001/';
+        var url;
+        
+        if (process.env.NODE_ENV === "production"){
+            url = production;
+        } else if (process.env.NODE_ENV === "development"){
+            url = development;
+        }
 
-        axios.defaults.baseURL = 'http://localhost:3001';
+        console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV)
+        axios.defaults.baseURL =  url;
 
         axios.post("/db/food", data)
             .then((response)=>{
