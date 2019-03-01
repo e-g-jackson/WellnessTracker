@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import DBResults from "./DBResults"
 // import helper from "../../../routes/dataHelper"
 // import $ from "jquery";
 
@@ -119,7 +120,7 @@ class Food extends React.Component {
                         <br/>
                         <div className="card">
                             <div className="card-body">
-                               DISPLAY DATABASE HERE
+                               <DBResults />
                             </div>
                         </div>
                     </div>
