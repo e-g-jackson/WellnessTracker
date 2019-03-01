@@ -35,7 +35,7 @@ class Food extends React.Component {
             url = development;
         }
 
-        console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV)
+        // console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV)
         axios.defaults.baseURL =  url;
 
         axios.post("/db/food", data)
