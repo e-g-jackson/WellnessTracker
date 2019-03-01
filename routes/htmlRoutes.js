@@ -3,7 +3,7 @@ module.exports = (app) => {
         res.sendFile(path.join(__dirname, './client/build/favicon.ico'))
     }),
 
-    app.use('/', (req, res) => {
+    app.use('*', (req, res) => {
         res.sendFile(path.join(__dirname, "./client/build/index.html"));
     })
 }
