@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import Graph from "./components/Graph";
@@ -33,46 +34,47 @@ class App extends Component {
         <div>
           <Navbar />
           <Header />
+          <Login />
 
-          <Route exact path = "/login" render = {() => {
-            return(
+          <Route exact path="/login" render={() => {
+            return (
               <Login />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/profile" render = {() => {
-            return(
+          <Route exact path="/profile" render={() => {
+            return (
               <Profile />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/food" render = {() => {
-            return(
+          <Route exact path="/food" render={() => {
+            return (
               <Food />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/types" render = {() => {
-            return(
+          <Route exact path="/types" render={() => {
+            return (
               <Types />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/progress" render = {() => {
-            return(
+          <Route exact path="/progress" render={() => {
+            return (
               <Progress />
             )
-          }}/>
+          }} />
 
-          <Route exact path = "/graph" render = {() => {
-            return(
+          <Route exact path="/graph" render={() => {
+            return (
               <div>
                 <Graph />
               </div>
             )
           }} />
         </div>
-        
+
       </Router>
     );
   };
