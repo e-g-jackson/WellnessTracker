@@ -36,6 +36,13 @@ class Navbar extends React.Component {
                                 </div>
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to= "/bmi">
+                                <div className="nav-link">
+                                    Bmi
+                                </div>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </nav>

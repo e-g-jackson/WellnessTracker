@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import './App1.css'
-import Range from './Components/Range';
-import Result from './Components/Result';
+import './Bmi.css'
+import Range from './Range';
+import Result from './Result';
 
-class App1 extends Component {
+class Bmi extends Component {
   constructor(props){
     super(props); 
     this.state = {
@@ -36,7 +36,7 @@ class App1 extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="Bmi">
         <h1>Calculate Your BMI</h1>
         <form>
           <div>
@@ -58,4 +58,4 @@ class App1 extends Component {
   }
 }
 
-export default App1
+export default Bmi

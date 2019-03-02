@@ -9,6 +9,7 @@ import Food from './components/Food';
 import WeightSubmit from './components/WeightSubmit';
 import Navbar from './components/Navbar';
 import FoodGraph from './components/FoodGraph';
+import Bmi from './components/Bmi';
 
 
 class App extends Component {
@@ -88,8 +89,19 @@ class App extends Component {
               <WeightSubmit />
             )
           }}/>
+
+           <Route exact path="/bmi" render={() => {
+            return (
+              <Bmi />
+            )
+          }} />
+
           
         </div>
+
+            )
+          }} />
+        {/* </div> */}
 
       </Router>
     );
