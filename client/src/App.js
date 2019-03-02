@@ -33,8 +33,7 @@ class App extends Component {
         <div>
           <Navbar />
           <Header />
-          <Login />
-
+          
           <Route exact path="/login" render={() => {
             return (
               <Login />
