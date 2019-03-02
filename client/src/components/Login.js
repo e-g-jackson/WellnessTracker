@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 // import "./Login.css";
 
 
@@ -69,7 +69,7 @@ class Login extends React.Component {
                                         />
                                     </div>
                                     <div className="g-signin2" data-onsuccess="onSignIn">
-                                    <button type="button" className="btn btn-secondary">Sign In</button>
+                                  <button type="button" className="btn btn-secondary">Sign In</button> 
                                     </div>
                                     <br/>
                                     <button type="button" className="btn btn-secondary">Register</button>

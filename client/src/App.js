@@ -7,8 +7,8 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Food from './components/Food';
 import Navbar from './components/Navbar';
-import FoodGraph from './components/FoodGraph';
 
+import FoodGraph from './components/FoodGraph';
 
 
 class App extends Component {
@@ -24,16 +24,15 @@ class App extends Component {
     this.setState({ isAuthenticated: authenticated });
   }
   render() {
-    const childProps = {
-      isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
-    };
+    // const childProps = {
+    //   isAuthenticated: this.state.isAuthenticated,
+    //   userHasAuthenticated: this.userHasAuthenticated
+    // };
     return (
       <Router>
         <div>
           <Navbar />
           <Header />
-          {/* <Login /> */}
 
           <Route exact path="/login" render={() => {
             return (
