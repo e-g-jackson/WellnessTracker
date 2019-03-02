@@ -54,12 +54,6 @@ class App extends Component {
           <Navbar />
           <Header />
 
-          <Route exact path="/login" render={() => {
-            return (
-              <Login />
-            )
-          }} />
-
           <Route exact path="/profile" render={() => {
             return (
               <Profile />
