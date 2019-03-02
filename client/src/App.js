@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route/*, Redirect*/ } from 'react-router-dom';
 import Header from "./components/Header";
 import Graph from "./components/Graph";
 import Login from './components/Login';
 import Profile from './components/Profile';
 import Food from './components/Food';
+import WeightSubmit from './components/WeightSubmit';
 import Navbar from './components/Navbar';
-
 import FoodGraph from './components/FoodGraph';
 
 
@@ -19,15 +19,34 @@ class App extends Component {
       isAuthenticated: false
     }
   }
+  authChanger(){
+    this.setState({
+      isAuthenticated: true
+    })
+  }
 
   userHasAuthenticated = authenticated => {
     this.setState({ isAuthenticated: authenticated });
   }
+
   render() {
     // const childProps = {
     //   isAuthenticated: this.state.isAuthenticated,
     //   userHasAuthenticated: this.userHasAuthenticated
     // };
+
+    if(this.state.isAuthenticated === false){
+      return(
+        <Router>
+          <div>
+            <Navbar />
+            <Header />
+            <Login authorize = {()=>this.authChanger()} />
+          </div>
+        </Router>
+      )
+    }
+
     return (
       <Router>
         <div>
@@ -60,7 +79,21 @@ class App extends Component {
 
           <Route exact path="/progress" render={() => {
             return (
+
               <Graph />
+
+                         )
+          }} />
+
+          <Route exact path="/weightsubmit" render={()=>{
+            return(
+              <WeightSubmit />
+            )
+          }}/>
+
+          
+              </div>
+
             )
           }} />
         </div>
