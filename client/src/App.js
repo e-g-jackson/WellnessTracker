@@ -9,6 +9,7 @@ import Food from './components/Food';
 import Types from './components/Types';
 import Progress from './components/Progress';
 import Navbar from './components/Navbar';
+// import './App.css';
 
 
 class App extends Component {
@@ -24,10 +25,10 @@ class App extends Component {
     this.setState({ isAuthenticated: authenticated });
   }
   render() {
-    const childProps = {
-      isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
-    };
+    // const childProps = {
+    //   isAuthenticated: this.state.isAuthenticated,
+    //   userHasAuthenticated: this.userHasAuthenticated
+    // };
     return (
       <Router>
         <div>

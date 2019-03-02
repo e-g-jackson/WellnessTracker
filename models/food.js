@@ -1,7 +1,9 @@
-module.exports = {
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+var newFood = new Schema ({
     foodName: {
         type: String,
-        required:True
+        required: true
     },
     meal: {
         type: String,
@@ -11,4 +13,8 @@ module.exports = {
         type: String,
         required: true
     }
-}
+})
+
+var food = mongoose.model("Food", newFood);
+
+module.exports = food;
