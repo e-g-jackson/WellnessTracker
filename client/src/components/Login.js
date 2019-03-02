@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 // import "./Login.css";
 
 
@@ -18,17 +19,33 @@ class Login extends React.Component {
 
 
    handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        const {username, password} = this.state;
+
+        const userSignUp = {
+            username,
+            password
+        };
+        console.log(userSignUp)
+
+        axios.post("/db/newuser", userSignUp)
+            .then((response)=>{
+                console.log(response)
+            }).catch((error) => {throw error})
+   }
+
+   onSignIn (event){
+        event.preventDefault();
         const {username, password} = this.state;
 
         const userLogin = {
             username,
             password
-        }
-
-        console.log(userLogin);
+        };
+        console.log('sign in!')
+        console.log(userLogin)
+        console.log(this.props.authorize());
    }
-
 
     render() {
 
@@ -69,10 +86,19 @@ class Login extends React.Component {
                                         />
                                     </div>
                                     <div className="g-signin2" data-onsuccess="onSignIn">
-                                    <button type="button" className="btn btn-secondary">Sign In</button>
+                                    <button 
+                                        type="button" 
+                                        className="btn btn-secondary"
+                                        onClick={(event)=>this.onSignIn(event)}
+                                        >Sign In
+                                    </button>
                                     </div>
                                     <br/>
-                                    <button type="button" className="btn btn-secondary">Register</button>
+                                    <button 
+                                        type="submit" 
+                                        className="btn btn-secondary"
+                                        >Register
+                                    </button>
                                 </form>
                             </div>
                         </div>

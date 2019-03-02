@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route/*, Redirect*/ } from 'react-router-dom';
 import Header from "./components/Header";
 import Graph from "./components/Graph";
 import Login from './components/Login';
@@ -20,21 +20,39 @@ class App extends Component {
       isAuthenticated: false
     }
   }
+  authChanger(){
+    this.setState({
+      isAuthenticated: true
+    })
+  }
 
   userHasAuthenticated = authenticated => {
     this.setState({ isAuthenticated: authenticated });
   }
+
   render() {
     // const childProps = {
     //   isAuthenticated: this.state.isAuthenticated,
     //   userHasAuthenticated: this.userHasAuthenticated
     // };
+
+    if(this.state.isAuthenticated === false){
+      return(
+        <Router>
+          <div>
+            <Navbar />
+            <Header />
+            <Login authorize = {()=>this.authChanger()} />
+          </div>
+        </Router>
+      )
+    }
+
     return (
       <Router>
         <div>
           <Navbar />
           <Header />
-          <Login />
 
           <Route exact path="/login" render={() => {
             return (

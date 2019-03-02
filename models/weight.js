@@ -1,11 +1,16 @@
 var mongoose = require("mongoose");
+
 var Schema = mongoose.Schema
+
 var newWeight = new Schema ({
     weight: {
         type: String, 
-        required: true
-    },
+        required: false
+    }
+},{
+    timestamps: true
 });
-var weight = ("Weight", newWeight);
 
-module.exports = weight;
+var Weight = ("Weight", newWeight);
+
+module.exports = Weight;
