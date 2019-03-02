@@ -1,7 +1,6 @@
-function Models () {
-    const weight = require("./weight.js");
-    const food = require("./food.js");
-    return(weight, food);
+//"db"
+module.exports = {
+    users: require('./newUser'),
+    weight: require('./weight'),
+    food: require('./food'),
 };
-
-module.exports = Models();

@@ -3,12 +3,24 @@ module.exports = (app, db) => {
         res.send('filler text')
     })
     
-    // app.get('/api/helper', function(req, res){});
+    app.post('/db/newuser', (req, res) => {
+        console.log(req.body)
+        db.users.create(req.body).then(() => {
+        res.send('Welcome ' + req.body.username + '!')
+        });
+    })
     
     app.post('/db/food', function(req, res){
         console.log(req.body)
-        db.create(req.body).then(() =>{
-        res.send('Data Received!').catch(err => {throw err})
-        })
+        db.food.create(req.body).then(() => {
+        res.send('Food data received!')
+        });
     });
+
+    app.post('/db/weight', function(req, res){
+        console.log(req.body);
+        db.weight.create(req.body).then(() => {
+        res.send('Weight entry received!')
+        })
+    })
 };
