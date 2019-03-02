@@ -79,10 +79,8 @@ class App extends Component {
 
           <Route exact path="/progress" render={() => {
             return (
-
               <Graph />
-
-                         )
+              )
           }} />
 
           <Route exact path="/weightsubmit" render={()=>{
@@ -90,12 +88,7 @@ class App extends Component {
               <WeightSubmit />
             )
           }}/>
-
           
-              </div>
-
-            )
-          }} />
         </div>
 
       </Router>
