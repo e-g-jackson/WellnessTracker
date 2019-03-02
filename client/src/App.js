@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from "./components/Header";
-// import Graph from "./assets/Graph";
-// import Body from "./assets/Body";
+import Graph from "./components/Graph";
+import Login from './components/Login';
+import Profile from './components/Profile';
+import Food from './components/Food';
+import Types from './components/Types';
+import Progress from './components/Progress';
+import Navbar from './components/Navbar';
 // import './App.css';
-// import Login from './assets/Login';
-// import Profile from './assets/Profile';
-// import Food from './assets/Food';
-// import Types from './assets/Types';
-//import Progress from './components/Progress';
-//import Navbar from './components/Navbar';
-import Login from "./components/Login";
-import Route from "./components/AppliedRoutes";
-import NoMatch from "./components/NoMatch";
+
 
 class App extends Component {
   constructor(props) {
@@ -27,26 +25,56 @@ class App extends Component {
     this.setState({ isAuthenticated: authenticated });
   }
   render() {
-    const childProps = {
-      isAuthenticated: this.state.isAuthenticated,
-      userHasAuthenticated: this.userHasAuthenticated
-    };
+    // const childProps = {
+    //   isAuthenticated: this.state.isAuthenticated,
+    //   userHasAuthenticated: this.userHasAuthenticated
+    // };
     return (
       <Router>
-
-      
         <div>
-        
-          {/* <Navbar />*/}
+          <Navbar />
           <Header />
-          {/* <Route childProps={childProps} /> */}
-          <Switch>
-            <Route exact path="/" component={Login} props={childProps} />
-            <Route exact path="/login" component={Login} props={childProps} />
-            <Route component={NoMatch} />
-          </Switch>;
+          <Login />
 
-      </div>
+          <Route exact path="/login" render={() => {
+            return (
+              <Login />
+            )
+          }} />
+
+          <Route exact path="/profile" render={() => {
+            return (
+              <Profile />
+            )
+          }} />
+
+          <Route exact path="/food" render={() => {
+            return (
+              <Food />
+            )
+          }} />
+
+          <Route exact path="/types" render={() => {
+            return (
+              <Types />
+            )
+          }} />
+
+          <Route exact path="/progress" render={() => {
+            return (
+              <Progress />
+            )
+          }} />
+
+          <Route exact path="/graph" render={() => {
+            return (
+              <div>
+                <Graph />
+              </div>
+            )
+          }} />
+        </div>
+
       </Router>
     );
   };

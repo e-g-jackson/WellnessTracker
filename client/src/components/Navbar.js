@@ -1,23 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Navbar.css';
 
 class Navbar extends React.Component {
     render() {
         return (
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item nav-item-1">
-                            <a class="nav-link" href="#">Profile</a>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item nav-item-1">
+                            <Link to="/profile">
+                                <div className = "nav-link">   
+                                    Profile
+                                </div>
+                            </Link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Food Tracker</a>
+                        <li className="nav-item">
+                            <Link to="/food">
+                                <div className = "nav-link">   
+                                    Food Tracker
+                                </div>
+                            </Link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Food Types</a>
+                        <li className="nav-item">
+                            <Link to="/types">
+                                <div className = "nav-link">   
+                                    FoodTypes
+                                </div>
+                            </Link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Progress</a>
+                        <li className="nav-item">
+                            <Link to="/progress">
+                                <div className = "nav-link">   
+                                    Progress
+                                </div>
+                            </Link>
                         </li>
                     </ul>
                 </div>
