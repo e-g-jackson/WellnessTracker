@@ -6,11 +6,9 @@ import Graph from "./components/Graph";
 import Login from './components/Login';
 import Profile from './components/Profile';
 import Food from './components/Food';
-import Types from './components/Types';
-import Progress from './components/Progress';
 import WeightSubmit from './components/WeightSubmit';
 import Navbar from './components/Navbar';
-// import './App.css';
+import FoodGraph from './components/FoodGraph';
 
 
 class App extends Component {
@@ -75,14 +73,16 @@ class App extends Component {
 
           <Route exact path="/types" render={() => {
             return (
-              <Types />
+              <FoodGraph />
             )
           }} />
 
           <Route exact path="/progress" render={() => {
             return (
-              <Progress />
-            )
+
+              <Graph />
+
+                         )
           }} />
 
           <Route exact path="/weightsubmit" render={()=>{
@@ -91,11 +91,9 @@ class App extends Component {
             )
           }}/>
 
-          <Route exact path="/graph" render={() => {
-            return (
-              <div>
-                <Graph />
+          
               </div>
+
             )
           }} />
         </div>
