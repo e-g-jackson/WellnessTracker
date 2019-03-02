@@ -26,52 +26,40 @@ const chartConfigs = {
     dataSource: {
         // Chart Configuration
         "chart": {
-            "caption": "Weight over Time",
-            "subCaption": "in lbs",
-            "xAxisName": "Time",
-            "yAxisName": "Weight (in lbs)",
-            "yAxisMinValue": "150",
-            "numberSuffix": "lbs",
+            "caption": "Food Types",
+            // "subCaption": "in lbs",
+            "xAxisName": "Type of Food",
+            "yAxisName": "Servings",
+            "yAxisMinValue": "1",
+            // "numberSuffix": "lbs",
             "theme": "fusion",
         },
         // Chart Data
         "data": [{
-            "label": "Jan 01, 2019",
-            "value": "175"
+            "label": "Vegetable",
+            "value": "4"
         }, {
-            "label": "Jan 05, 2019",
-            "value": "170"
+            "label": "Fruit",
+            "value": "3"
         }, {
-            "label": "Jan 10, 2019",
-            "value": "165"
+            "label": "Protein",
+            "value": "4"
         }, {
-            "label": "Jan 15, 2019",
-            "value": "170"
-        }, {
-            "label": "Jan 20, 2019",
-            "value": "167"
-        }, {
-            "label": "Jan 25, 2019",
-            "value": "165"
-        }, {
-            "label": "Jan 30, 2019",
-            "value": "174"
-        }, {
-            "label": "Feb 05, 2019",
-            "value": "170"
+            "label": "Carb",
+            "value": "2"
         }]
     }
 };
 
 // Step 8 - Creating the DOM element to pass the react-fusioncharts component
-class Graph extends React.Component {
+class FoodGraph extends React.Component {
   render() {
      return (
         <div className="container">
             <div className="row">
                  <div className="col-md-2"></div>
                  <div className="col-md-10 ">
-                     <h1 className="text-left">Progress</h1>
+                     <h1 className="text-left">Food Types</h1>
                      <ReactFC
                          {...chartConfigs} />
                  </div>
@@ -81,4 +69,4 @@ class Graph extends React.Component {
     }
 }
 
-export default Graph;
+export default FoodGraph;
