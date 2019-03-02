@@ -66,6 +66,7 @@ const chartConfigs = {
 
 // Step 8 - Creating the DOM element to pass the react-fusioncharts component
 class Graph extends React.Component {
+
     state = {data: chartData}
     componentDidMount(){
         console.log('axios working...')
@@ -93,6 +94,7 @@ class Graph extends React.Component {
                 <ReactFC
                     {...chartConfigs}/>
             </div>
+
         );
     }
 }

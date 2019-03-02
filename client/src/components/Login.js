@@ -86,12 +86,15 @@ class Login extends React.Component {
                                         />
                                     </div>
                                     <div className="g-signin2" data-onsuccess="onSignIn">
+
                                     <button 
                                         type="button" 
                                         className="btn btn-secondary"
                                         onClick={(event)=>this.onSignIn(event)}
                                         >Sign In
                                     </button>
+                                  
+
                                     </div>
                                     <br/>
                                     <button 
