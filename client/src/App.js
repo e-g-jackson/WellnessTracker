@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import Food from './components/Food';
 import Types from './components/Types';
 import Progress from './components/Progress';
+import WeightSubmit from './components/WeightSubmit';
 import Navbar from './components/Navbar';
 // import './App.css';
 
@@ -83,6 +84,12 @@ class App extends Component {
               <Progress />
             )
           }} />
+
+          <Route exact path="/weightsubmit" render={()=>{
+            return(
+              <WeightSubmit />
+            )
+          }}/>
 
           <Route exact path="/graph" render={() => {
             return (

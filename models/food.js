@@ -15,6 +15,8 @@ var newFood = new Schema ({
         type: String,
         required: false
     }
+},{
+    timestamps:true
 })
 
 var Food = mongoose.model("Food", newFood);
