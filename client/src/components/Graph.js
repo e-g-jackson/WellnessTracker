@@ -1,3 +1,4 @@
+import axios from 'axios';
 // Step 1 - Including react
 import React from 'react';
 // import ReactDOM from 'react-dom';
@@ -16,7 +17,7 @@ import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
 // Step 6 - Adding the chart as dependency to the core fusioncharts
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
-
+const chartData = [];
 // Step 7 - Creating the JSON object to store the chart configurations
 const chartConfigs = {
     type: 'column2d',// The chart type
@@ -35,7 +36,7 @@ const chartConfigs = {
             "theme": "fusion",
         },
         // Chart Data
-        "data": [{
+        "data": chartData/*[{
             "label": "Jan 01, 2019",
             "value": "175"
         }, {
@@ -59,24 +60,41 @@ const chartConfigs = {
         }, {
             "label": "Feb 05, 2019",
             "value": "170"
-        }]
+        }]*/
     }
 };
 
 // Step 8 - Creating the DOM element to pass the react-fusioncharts component
 class Graph extends React.Component {
-  render() {
-     return (
-        <div className="container">
-            <div className="row">
-                 <div className="col-md-2"></div>
-                 <div className="col-md-10 ">
-                     <h1 className="text-left">Progress</h1>
-                     <ReactFC
-                         {...chartConfigs} />
-                 </div>
+
+    state = {data: chartData}
+    componentDidMount(){
+        console.log('axios working...')
+        axios.get("/db/getweights")
+            .then(response=>{
+                console.log(response.data);
+                this.makeChart(response.data);
+            }).catch(error => {
+                console.log(error)
+            })
+    }
+
+    makeChart(data) {
+        for(var i = 0; i < data.length; i++){
+            const newData = {label: data[i].createdAt, value: data[i].weight};
+            chartData.push(newData);
+            console.log(chartData);
+            this.setState({data: chartData});
+        };
+    }
+
+    render() {
+        return (
+            <div className = "text-center">
+                <ReactFC
+                    {...chartConfigs}/>
             </div>
-        </div>
+
         );
     }
 }

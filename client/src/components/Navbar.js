@@ -23,9 +23,9 @@ class Navbar extends React.Component {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/types">
+                            <Link to="/weightsubmit">
                                 <div className = "nav-link">   
-                                    FoodTypes
+                                    Weight Tracker
                                 </div>
                             </Link>
                         </li>
