@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 class Result extends Component {
   // convert cm into ft 
   toFeet = (num) => {
-    let realFeet = ((num * 0.393700) / 12); 
+    let realFeet = ((num) / 12); 
     let feet = Math.floor(realFeet); 
-    let inches = Math.round((realFeet - feet) * 12); 
+    let inches = Math.round(num % 12); 
     return `${feet}'${inches}`; 
   }
   // convert lbs to kg
