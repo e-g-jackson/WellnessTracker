@@ -8,30 +8,40 @@ ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 class Graph extends React.Component {
 
-    state = { configs: this.props.data }
+    // state = {
+    //     configs: undefined,
+    //     data: undefined
+    // };
+    constructor(props) {
+        super(props);
+        this.state = {
+            configs: undefined,
+            data: undefined
+        };
+    }
 
     componentDidMount(){
-        console.log('STATE from G')
-        console.log(this.state.data)
-        console.log('PROPS from G')
-        console.log(this.props.data)
         this.makeChart()
     }
 
     componentWillReceiveProps(newProps) {
-        this.makeChart(newProps);
+        console.log(newProps)
+        if(newProps !== this.state.data){
         this.setState({ data: newProps });  
+        this.makeChart();
+        }
     }
 
     makeChart(){
         if (this.state.data === undefined){
-            setTimeout(()=>{this.makeChart()}, 500)
+            setTimeout(()=>{console.log('IF');console.log(this.state);this.makeChart()}, 250)
         } else {
-            console.log('"else" triggered!')
+            console.log('ELSE')
+            // console.log(this.state)
             const graphData = this.state.data.data
             const chartConfigs = {
                 type: 'column2d',
-                width: '700',
+                width: '500',
                 height: '400',
                 dataFormat: 'json',
                 dataSource: {
@@ -50,7 +60,6 @@ class Graph extends React.Component {
                 }
             };
             this.setState({configs: chartConfigs})
-            console.log(this.state.configs)
         }
     }
 

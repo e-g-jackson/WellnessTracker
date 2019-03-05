@@ -3,9 +3,16 @@ import axios from "axios";
 import Graph from "./Graph"
 
 class Food extends React.Component {
-    state = {
-        weight: "",
-        data: ""
+    // state = {
+    //     weight: "",
+    //     data: ""
+    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            weight: undefined,
+            data: undefined
+        };
     }
 
     componentDidMount(){
@@ -31,8 +38,9 @@ class Food extends React.Component {
                 const data = response.data;
                 const newList = [];
                 for (var i = 0; i < data.length; i++){
+                    const format = data[i].createdAt.split("T")
                     const newData = {
-                        label: data[i].createdAt,
+                        label: format[0],
                         value: data[i].weight
                     };
                     newList.push(newData);
