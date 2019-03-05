@@ -37,8 +37,10 @@ class Food extends React.Component {
                     };
                     newList.push(newData);
                 }
+                console.log('newList from WS:')
                 console.log(newList)
                 this.setState({data: newList});
+                console.log('this.state from WS:')
                 console.log(this.state)
             }).catch(error => {
                 console.log(error);
@@ -61,8 +63,8 @@ class Food extends React.Component {
                                         <input 
                                             type="text" 
                                             className="form-control" 
-                                            id="foodName" 
-                                            aria-describedby="food" 
+                                            id="weight" 
+                                            aria-describedby="weight" 
                                             placeholder="Enter weight"
                                             onChange = {(event) =>{
                                                 console.log(event.target.value);
