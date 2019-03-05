@@ -39,7 +39,7 @@ class Navbar extends React.Component {
                         <li className="nav-item">
                             <Link to= "/bmi">
                                 <div className="nav-link">
-                                    Bmi
+                                    BMI
                                 </div>
                             </Link>
                         </li>

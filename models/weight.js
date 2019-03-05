@@ -4,7 +4,7 @@ var Schema = mongoose.Schema
 
 var newWeight = new Schema ({
     weight: {
-        type: String, 
+        type: Number, 
         required: false
     }
 },{

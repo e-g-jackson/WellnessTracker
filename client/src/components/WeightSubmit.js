@@ -1,23 +1,48 @@
 import React from "react";
 import axios from "axios";
 import Graph from "./Graph"
-// import helper from "../../../routes/dataHelper"
-// import $ from "jquery";
 
 class Food extends React.Component {
     state = {
-        weight: ""
+        weight: "",
+        data: ""
+    }
+
+    componentDidMount(){
+        this.getData();
     }
 
     handleClickEvent(e){
         e.preventDefault();
-        const data = this.state;
+        const data = {weight: this.state.weight};
+        console.log('Submitting the following')
         console.log(data);
 
         axios.post("/db/weight", data)
-            .then((response)=>{
+            .then((response) => {
                 console.log(response)
+                this.getData();
             }).catch((error) => {throw error})
+    }
+
+    getData(){
+        axios.get("/db/getweights")
+            .then(response => {
+                const data = response.data;
+                const newList = [];
+                for (var i = 0; i < data.length; i++){
+                    const newData = {
+                        label: data[i].createdAt,
+                        value: data[i].weight
+                    };
+                    newList.push(newData);
+                }
+                console.log(newList)
+                this.setState({data: newList});
+                console.log(this.state)
+            }).catch(error => {
+                console.log(error);
+            })
     }
     
     render() {
@@ -59,7 +84,9 @@ class Food extends React.Component {
                         <br/>
                         <div className="card">
                             <div className="card-body">
-                               <Graph />
+                               <Graph 
+                               data = {this.state.data} 
+                               />
                             </div>
                         </div>
                     </div>
