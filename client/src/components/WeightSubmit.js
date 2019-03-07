@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Graph from "./Graph"
+import Graph from "./Graph";
+import {Animated} from "react-animated-css";
 
 class Food extends React.Component {
     // state = {
@@ -57,6 +58,7 @@ class Food extends React.Component {
     
     render() {
         return (
+            <Animated animationIn="fadeIn" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"></div>
@@ -103,6 +105,7 @@ class Food extends React.Component {
                     <div className="col-md-3"></div>
                 </div>
             </div>
+            </Animated>
         );
     };
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 // import "./Login.css";
-
+import {Animated} from "react-animated-css";
 
 class Login extends React.Component {
 
@@ -52,6 +52,7 @@ class Login extends React.Component {
         const {username, password} = this.state
 
         return (
+            <Animated animationIn="fadeIn" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"></div>
@@ -94,7 +95,6 @@ class Login extends React.Component {
                                         >Sign In
                                     </button>
                                   
-
                                     </div>
                                     <br/>
                                     <button 
@@ -109,6 +109,7 @@ class Login extends React.Component {
                     <div className="col-md-3"></div>
                 </div>
             </div>
+            </Animated>
         );
     };
 };

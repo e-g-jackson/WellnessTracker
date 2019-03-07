@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Bmi.css'
 import Range from './Range';
 import Result from './Result';
+import {Animated} from "react-animated-css";
 
 class Bmi extends Component {
   constructor(props){
@@ -36,6 +37,7 @@ class Bmi extends Component {
 
   render() {
     return (
+      <Animated animationIn="fadeIn" isVisible={true}>
       <div className="Bmi">
         <h1>Calculate Your BMI</h1>
         <form>
@@ -56,6 +58,7 @@ class Bmi extends Component {
         </form>
         <Result data={this.state}/>
       </div>
+      </Animated>
     );
   }
 }

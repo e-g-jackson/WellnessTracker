@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Animated} from "react-animated-css";
 
 class Range extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Range extends Component {
 
   render() {
     return (
+      <Animated animationIn="fadeIn" isVisible={true}>
       <div className="range">
         <input 
             type="range"
@@ -32,6 +34,7 @@ class Range extends Component {
             onChange={this.onChange}
         />
       </div>
+      </Animated>
     );
   }
 }
