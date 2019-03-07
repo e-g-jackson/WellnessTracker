@@ -23,11 +23,13 @@ class Graph extends React.Component {
     componentDidMount(){
         this.makeChart()
     }
-
-    componentWillReceiveProps(newProps) {
-        console.log(newProps)
-        if(newProps !== this.state.data){
-        this.setState({ data: newProps });  
+    // componentDidUpdate(){
+    //     this.forceUpdate();
+    // }
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+        if(nextProps !== this.state.data){
+        this.setState({ data: nextProps });  
         this.makeChart();
         }
     }
