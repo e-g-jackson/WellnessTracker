@@ -7,11 +7,6 @@ import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 class Graph extends React.Component {
-
-    // state = {
-    //     configs: undefined,
-    //     data: undefined
-    // };
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +19,7 @@ class Graph extends React.Component {
         this.makeChart()
     }
     // componentDidUpdate(){
-    //     this.forceUpdate();
+        
     // }
     componentWillReceiveProps(nextProps) {
         console.log(nextProps)

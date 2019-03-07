@@ -29,6 +29,7 @@ class Food extends React.Component {
             .then((response) => {
                 console.log(response)
                 this.getData();
+                setTimeout(()=>{this.forceUpdate();},250)
             }).catch((error) => {throw error})
     }
 
@@ -45,11 +46,15 @@ class Food extends React.Component {
                     };
                     newList.push(newData);
                 }
+                if(newList !== this.state.data){
                 console.log('newList from WS:')
                 console.log(newList)
                 this.setState({data: newList});
                 console.log('this.state from WS:')
                 console.log(this.state)
+                } else {
+                    alert('Same Data');
+                }
             }).catch(error => {
                 console.log(error);
             })
