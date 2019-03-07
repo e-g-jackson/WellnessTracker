@@ -9,6 +9,21 @@ module.exports = (app, db) => {
             }
         });
     });
+
+    app.get('/db/finduser', (req, res) => {
+        console.log('USERNAME/PASSWORD request made:');
+        console.log(req.body)
+        // console.log(req.body.username);
+        // console.log(req.body.password);
+        db.users.find({username: req.body.username, password: req.body.password}, function(err, result){
+            if (err){
+                throw err;
+            } else {
+                console.log(result);
+                res.send(result);
+            }
+        })
+    })
     
     app.post('/db/newuser', (req, res) => {
         console.log(req.body)

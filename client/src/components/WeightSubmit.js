@@ -3,10 +3,6 @@ import axios from "axios";
 import Graph from "./Graph"
 
 class Food extends React.Component {
-    // state = {
-    //     weight: "",
-    //     data: ""
-    // }
     constructor(props) {
         super(props);
         this.state = {
@@ -22,12 +18,9 @@ class Food extends React.Component {
     handleClickEvent(e){
         e.preventDefault();
         const data = {weight: this.state.weight};
-        console.log('Submitting the following')
-        console.log(data);
 
         axios.post("/db/weight", data)
             .then((response) => {
-                console.log(response)
                 this.getData();
                 setTimeout(()=>{this.forceUpdate();},250)
             }).catch((error) => {throw error})
@@ -47,16 +40,12 @@ class Food extends React.Component {
                     newList.push(newData);
                 }
                 if(newList !== this.state.data){
-                console.log('newList from WS:')
-                console.log(newList)
                 this.setState({data: newList});
-                console.log('this.state from WS:')
-                console.log(this.state)
                 } else {
                     alert('Same Data');
                 }
             }).catch(error => {
-                console.log(error);
+                throw error;
             })
     }
     
@@ -80,7 +69,6 @@ class Food extends React.Component {
                                             aria-describedby="weight" 
                                             placeholder="Enter weight"
                                             onChange = {(event) =>{
-                                                console.log(event.target.value);
                                                 this.setState({
                                                     weight: event.target.value
                                                 });

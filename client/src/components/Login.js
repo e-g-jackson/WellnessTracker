@@ -31,20 +31,51 @@ class Login extends React.Component {
         axios.post("/db/newuser", userSignUp)
             .then((response)=>{
                 console.log(response)
-            }).catch((error) => {throw error})
+            }).catch((error) => {
+                throw error
+            })
    }
 
    onSignIn (event){
         event.preventDefault();
-        const {username, password} = this.state;
+        console.log('sign in attempted...')
+        const newLogin =  {username: this.state.username, password: this.state.password}
+        console.log('newLogin:')
+        console.log(newLogin)
+        axios.get("/db/finduser", newLogin)
+            .then((response) => {
+                console.log(response)
+                if (response.data === true){
+                    console.log(this.state)
+                    const {username, password} = this.state;
+            
+                    const userLogin = {
+                        username,
+                        password
+                    };
+                    
+                    console.log('USERNAME/PASSWORD accepted. Signing in!')
+                    console.log(userLogin)//needed?
+                    console.log(this.props.authorize());//needed?
+                } else {
+                    console.log('Sorry, nothing found. Try again, or create an account!')
+                    this.forceUpdate();
+                }
 
-        const userLogin = {
-            username,
-            password
-        };
-        console.log('sign in!')
-        console.log(userLogin)//needed?
-        console.log(this.props.authorize());//needed?
+            }).catch((error) => {
+                throw error;
+            })
+        // console.log(this.state)
+        // const {username, password} = this.state;
+
+        // const userLogin = {
+        //     username,
+        //     password
+        // };
+        
+        // console.log('sign in!')
+        // console.log(userLogin)//needed?
+        // console.log(this.props.authorize());//needed?
    }
 
     render() {
