@@ -43,8 +43,8 @@ class Login extends React.Component {
             password
         };
         console.log('sign in!')
-        console.log(userLogin)
-        console.log(this.props.authorize());
+        console.log(userLogin)//needed?
+        console.log(this.props.authorize());//needed?
    }
 
     render() {
