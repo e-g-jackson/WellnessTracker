@@ -8,11 +8,6 @@ import {Animated} from "react-animated-css";
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 class Graph extends React.Component {
-
-    // state = {
-    //     configs: undefined,
-    //     data: undefined
-    // };
     constructor(props) {
         super(props);
         this.state = {
@@ -24,11 +19,8 @@ class Graph extends React.Component {
     componentDidMount(){
         this.makeChart()
     }
-    // componentDidUpdate(){
-    //     this.forceUpdate();
-    // }
+    
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
         if(nextProps !== this.state.data){
         this.setState({ data: nextProps });  
         this.makeChart();
@@ -37,10 +29,8 @@ class Graph extends React.Component {
 
     makeChart(){
         if (this.state.data === undefined){
-            setTimeout(()=>{console.log('IF');console.log(this.state);this.makeChart()}, 250)
+            setTimeout(()=>{this.makeChart()}, 250)
         } else {
-            console.log('ELSE')
-            // console.log(this.state)
             const graphData = this.state.data.data
             const chartConfigs = {
                 type: 'column2d',
