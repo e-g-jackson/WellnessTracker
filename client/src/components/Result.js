@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Animated} from "react-animated-css";
 
 class Result extends Component {
   // convert cm into ft 
@@ -25,6 +26,7 @@ class Result extends Component {
     let pounds = this.toLbs(weight); 
 
     return (
+      <Animated animationIn="fadeIn" isVisible={true}>
       <div className="result">
         <h3>
           {heightFeet} ft
@@ -37,6 +39,7 @@ class Result extends Component {
         <h3>{bmi}</h3>
         <h3>{bmiClass}</h3>
       </div>
+      </Animated>
     );
   }
 }

@@ -1,8 +1,10 @@
 import React from "react";
+import {Animated} from "react-animated-css";
 
 class Profile extends React.Component {
     render() {
         return (
+            <Animated animationIn="fadeIn" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"></div>
@@ -36,6 +38,7 @@ class Profile extends React.Component {
                     <div className="col-md-3"></div>
                 </div>
             </div>
+            </Animated>
         );
     };
 };
