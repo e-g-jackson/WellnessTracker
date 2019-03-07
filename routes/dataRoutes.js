@@ -10,17 +10,34 @@ module.exports = (app, db) => {
         });
     });
 
-    app.get('/db/finduser', (req, res) => {
-        console.log('USERNAME/PASSWORD request made:');
-        console.log(req.body)
-        // console.log(req.body.username);
-        // console.log(req.body.password);
-        db.users.find({username: req.body.username, password: req.body.password}, function(err, result){
+    app.get('/db/finduser/:username/:password', (req, res) => {
+        const UN = req.params.username;
+        const PW = req.params.password
+        db.users.find({}, function(err, result){
             if (err){
                 throw err;
             } else {
-                console.log(result);
-                res.send(result);
+                let match = false;
+                for( var i = 0; i < result.length; i++){
+                    if(result[i].username === UN && result[i].password === PW){
+                        match = true
+                    }
+                }
+                if(match === true){
+                    res.send(true)
+                } else {
+                    res.send(false)
+                }
+            }
+        })
+    })
+
+    app.get('/db/getFoods', (req, res) => {
+        db.food.find({}, function(err, result){
+            if (err){
+                throw err;
+            } else {
+                res.json(result)
             }
         })
     })

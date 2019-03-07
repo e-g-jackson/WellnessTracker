@@ -42,24 +42,28 @@ class Login extends React.Component {
         const newLogin =  {username: this.state.username, password: this.state.password}
         console.log('newLogin:')
         console.log(newLogin)
-        axios.get("/db/finduser", newLogin)
+        // axios.get("/db/finduser", newLogin)
+        axios.get("/db/finduser/" + this.state.username + "/" + this.state.password)
             .then((response) => {
                 console.log(response)
                 if (response.data === true){
                     console.log(this.state)
-                    const {username, password} = this.state;
+                    // const {username, password} = this.state;
             
-                    const userLogin = {
-                        username,
-                        password
-                    };
+                    // const userLogin = {
+                    //     username,
+                    //     password
+                    // };
+                    // console.log(userLogin)//needed?
                     
                     console.log('USERNAME/PASSWORD accepted. Signing in!')
-                    console.log(userLogin)//needed?
-                    console.log(this.props.authorize());//needed?
+                    this.props.authorize();
                 } else {
                     console.log('Sorry, nothing found. Try again, or create an account!')
-                    this.forceUpdate();
+                    this.setState({
+                        username: "",
+                        password: ""
+                    });
                 }
 
             }).catch((error) => {
