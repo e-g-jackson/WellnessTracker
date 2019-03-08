@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 // var input = 'pizza'
 
+let inputVal = "";
+
 const style = {
     header:{
         backgroundColor: "rgb(170, 37, 37)",
@@ -29,6 +31,7 @@ class Recipes extends React.Component {
         let recipes = [];
         axios.get('https://www.food2fork.com/api/search?key=' + key + '&q=' + this.state.input)
             .then((response) => {
+                console.log(response)
                 var divs = response.data.recipes.map((x) => {
                     console.log(x);
                     return(
@@ -69,11 +72,11 @@ class Recipes extends React.Component {
                     <div>
                     <input 
                         onChange = {
-                            (event) =>{this.setState({input: event.target.value})}
+                            (event) => {inputVal = event.target.value}
                         }
                     />
                     <button
-                        onClick = {this.getData()}
+                        onClick = {() => {this.setState({input : inputVal})}}
                     >Submit</button>
                     </div>
                     <div className = 'container'>
