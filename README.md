@@ -14,15 +14,6 @@ Upon navigating to the page, the user will be first greeted with a login screen,
 
 ![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Login.JPG "Login Screen")
 
-
-### Display Information
-
-Once entered into the database, the information will be graphed and displayed.
-
-![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/CaloriesInfo.JPG "Track Calories")
-
-![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/NutritionalInfo.JPG "Track Nutrition")
-
 ### Track Progress
 
 Over time, data will accumulate and allow the user to track their progress towards meeting any goals that they've set for themselves.
@@ -31,10 +22,10 @@ Over time, data will accumulate and allow the user to track their progress towar
 
 ## Development Team:
 
-+ **Jenny** - *React & Wireframe*
-+ **Jodi** - *API & Routes*
-+ **Erik** - *Charting/Graphing & Database*
-+ **Olayinka** - *Research & Front End*
++ **Jenny** - *React & Wireframe & CSS*
++ **Jodi** - *API/Routes & Login Page(React)*
++ **Erik** - *Charting/Graphing & Database & React*
++ **Olayinka** - *Research & Front End & BMI*
 
 ## Schedule:
 
