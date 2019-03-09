@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
-var key = F2F_KEY;
+var key = '30e77a591ab3a009323f28be315be367';
+// var key = F2F_KEY;
 
 const style = {
     header:{
@@ -94,14 +95,15 @@ class Recipes extends React.Component {
             return(
                 <div div className = 'container bg-white py-3 px-5'>
                     <div>
-                    <input 
-                        onChange = {
-                            (event) => {this.setState({input: event.target.value})}
-                        }
-                    />
-                    <button
-                        onClick = {() => {this.getData()}}
-                    >Submit</button>
+                        <input 
+                            onChange = {
+                                (event) => {this.setState({input: event.target.value})}
+                            }
+                        />
+                        <button
+                            onClick = {() => {this.getData()}}
+                            >Submit
+                        </button>
                     </div>
                     <div className = 'container'>
                         <h1 style = {style.text}>Recipe Results:</h1>
