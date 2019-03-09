@@ -1,5 +1,6 @@
 import React from "react";
 import $ from "jquery";
+import {Animated} from "react-animated-css";
 
 class DBResults extends React.Component {
     state = {results: ""};
@@ -23,6 +24,7 @@ class DBResults extends React.Component {
 
     render(){
         return(
+          <Animated animationIn="fadeIn" is Visible={true}>
             <table className = 'table'>
                 <thead className = 'thead-light'>
                     <tr>
@@ -36,6 +38,8 @@ class DBResults extends React.Component {
                     {this.state.results}
                 </tbody>
             </table>
+          </Animated>
+
         )
     }
 }

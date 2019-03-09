@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import {Animated} from "react-animated-css";
 
 class Result extends Component {
   // convert cm into ft 
   toFeet = (num) => {
-    let realFeet = ((num * 0.393700) / 12); 
+    let realFeet = ((num) / 12); 
     let feet = Math.floor(realFeet); 
-    let inches = Math.round((realFeet - feet) * 12); 
+    let inches = Math.round(num % 12); 
     return `${feet}'${inches}`; 
   }
   // convert lbs to kg
@@ -25,6 +26,7 @@ class Result extends Component {
     let pounds = this.toLbs(weight); 
 
     return (
+      <Animated animationIn="fadeIn" isVisible={true}>
       <div className="result">
         <h3>
           {heightFeet} ft
@@ -37,6 +39,7 @@ class Result extends Component {
         <h3>{bmi}</h3>
         <h3>{bmiClass}</h3>
       </div>
+      </Animated>
     );
   }
 }

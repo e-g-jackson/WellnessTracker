@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import Graph from "./Graph";
 import DBResults from "./DBResults";
+import {Animated} from "react-animated-css";
+
 
 class Profile extends React.Component {
     state = {
@@ -32,6 +34,7 @@ class Profile extends React.Component {
     }
     render() {
         return (
+          <Animated animationIn="fadeIn" isVisible={true}>
             <div className = 'container bg-white'>
                 <div className = 'row'>
                     <div className = 'col-6'>
@@ -44,6 +47,7 @@ class Profile extends React.Component {
 
                     <div className = 'col-6 py-3'>
                         <DBResults />
+
                     </div>
                 </div>
             </div>
@@ -80,6 +84,8 @@ class Profile extends React.Component {
             //         <div className="col-md-3"></div>
             //     </div>
             // </div>
+            </Animated>
+
         );
     };
 };

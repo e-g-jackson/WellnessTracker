@@ -1,9 +1,11 @@
 import React from "react";
 import './Header.css';
+import {Animated} from "react-animated-css";
 
 class Header extends React.Component{
     render(){
         return(
+            <Animated animationIn="fadeInDown" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
@@ -11,8 +13,10 @@ class Header extends React.Component{
                     </div>
                 </div>
             </div>
+            </Animated>
         )
     }
 }
 
 export default Header;
+
