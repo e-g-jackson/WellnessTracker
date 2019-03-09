@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-// var input = 'pizza'
+var key = F2F_KEY;
 
-let inputVal = "";
+// let inputVal = "";
 
 const style = {
     header:{
@@ -15,16 +15,19 @@ const style = {
     },
     body:{
         backgroundColor: "white"
+    },
+    text:{
+        color: "rgb(170, 37, 37)"
     }
 }
 class Recipes extends React.Component {
     state = {
+        dataHasLoaded: false,
         recipes: "",
-        input: "pizza"
+        input: ""
     }
 
     componentDidMount(){
-        this.getData();
     }
 
     getData(){
@@ -56,6 +59,7 @@ class Recipes extends React.Component {
                 recipes.push(divs);
 
                 this.setState({
+                    "dataHasLoaded": true,
                     "recipes": recipes[0]
                 })
             }).catch(function(error){throw error});
@@ -64,23 +68,35 @@ class Recipes extends React.Component {
         console.log(this.state)
         if (this.state.recipes === "") {
             return(
-                <h3>Waiting for recipes...</h3>
-            )
-        } else {
-            return(
-                <div>
-                    <div>
+                <div className = 'container bg-white py-3 px-5'>
                     <input 
                         onChange = {
-                            (event) => {inputVal = event.target.value}
+                            (event) => {this.setState({input: event.target.value})}
                         }
                     />
                     <button
-                        onClick = {() => {this.setState({input : inputVal})}}
+                        onClick = {() => {this.getData()}}
+                    >Submit</button>
+                    <div>
+                        <h3 style = {style.text}>Enter a value into the search bar and click submit to find new recipes!</h3>
+                    </div>
+                </div>
+            )
+        } else {
+            return(
+                <div div className = 'container bg-white py-3 px-5'>
+                    <div>
+                    <input 
+                        onChange = {
+                            (event) => {this.setState({input: event.target.value})}
+                        }
+                    />
+                    <button
+                        onClick = {() => {this.getData()}}
                     >Submit</button>
                     </div>
                     <div className = 'container'>
-                        <h1>Hello World!</h1>
+                        <h1 style = {style.text}>Recipe Results:</h1>
                         {this.state.recipes}
                     </div>
                 </div>

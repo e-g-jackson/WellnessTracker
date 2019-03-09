@@ -6,13 +6,36 @@ class DBResults extends React.Component {
 
     componentDidMount(){
         $.get("/db/getFoods", (res) => {
-           console.log(res) 
+            var foodData = res.map((x, index) => {
+                var newIndex = index + 1;
+                return(
+                    <tr key = {newIndex}>
+                        <th>{newIndex}</th>
+                        <td>{x.foodName}</td>
+                        <td>{x.meal}</td>
+                        <td>{x.foodType}</td>
+                    </tr>
+                )
+           });
+           this.setState({results: foodData})
         })
     }
 
     render(){
         return(
-            <h1>DATABASE RESULTS HERE</h1>
+            <table className = 'table'>
+                <thead className = 'thead-light'>
+                    <tr>
+                        <th scope = 'col'>#</th>
+                        <th scope = 'col'>Food Name</th>
+                        <th scope = 'col'>Meal</th>
+                        <th scope = 'col'>Food Type</th>
+                    </tr>
+                </thead>
+                <tbody className = 'table-striped table-hover'>
+                    {this.state.results}
+                </tbody>
+            </table>
         )
     }
 }
