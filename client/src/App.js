@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Food from './components/Food';
 import WeightSubmit from './components/WeightSubmit';
+import Recipes from './components/Recipes';
 import Navbar from './components/Navbar';
 import FoodGraph from './components/FoodGraph';
 import Bmi from './components/Bmi';
@@ -84,13 +85,18 @@ class App extends Component {
             )
           }}/>
 
-           <Route exact path="/bmi" render={() => {
+          <Route exact path="/bmi" render={() => {
             return (
               <Bmi />
             )
-          }} />
+            }} 
+          />
 
-          
+          <Route exact path="/recipes" render={() => {
+            return (
+              <Recipes />
+            )
+          }} />
         </div>
 
       </Router>
