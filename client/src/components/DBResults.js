@@ -6,7 +6,7 @@ class DBResults extends React.Component {
 
     componentDidMount(){
         $.get("/db/getFoods", (res) => {
-            var foodData = res.map((x, index) => {
+            var foodData = res.slice(0).reverse().map((x, index) => {
                 var newIndex = index + 1;
                 return(
                     <tr key = {newIndex}>
