@@ -3,6 +3,7 @@ import ReactFC from 'react-fusioncharts';
 import FusionCharts from 'fusioncharts';
 import Column2D from 'fusioncharts/fusioncharts.charts';
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import {Animated} from "react-animated-css";
 
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
@@ -57,11 +58,12 @@ class Graph extends React.Component {
 
     render() {
         return (
+            <Animated animationIn="fadeIn" isVisible={true}>
             <div className = "text-center">
                 <ReactFC
                     {...this.state.configs}/>
             </div>
-
+            </Animated>
         );
     }
 }

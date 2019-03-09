@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import './Bmi.css'
 import Range from './Range';
 import Result from './Result';
+import {Animated} from "react-animated-css";
 
 class Bmi extends Component {
   constructor(props){
     super(props); 
     this.state = {
-      height: 175,
+      height: 57,
       weight: 73, 
       bmi: 22.49, 
       bmiClass: 'Normal'
@@ -23,7 +24,7 @@ class Bmi extends Component {
   }
 
   setBmi = () => {
-    let bmi = ((this.state.weight / this.state.height / this.state.height) * 10000).toFixed(2); 
+    let bmi = ((this.state.weight / (this.state.height * this.state.height)) * 703).toFixed(2); 
     this.setState({ bmi: bmi, bmiClass: this.getBmiClass(bmi) }); 
   }
 
@@ -36,12 +37,15 @@ class Bmi extends Component {
 
   render() {
     return (
+      <Animated animationIn="fadeIn" isVisible={true}>
       <div className="Bmi">
         <h1>Calculate Your BMI</h1>
         <form>
           <div>
             <label>Height</label>
             <Range 
+              min={0}
+              max={100}
               value={this.state.height} 
               onChange={this.heightChange} />
           </div>
@@ -54,6 +58,7 @@ class Bmi extends Component {
         </form>
         <Result data={this.state}/>
       </div>
+      </Animated>
     );
   }
 }

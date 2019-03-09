@@ -14,11 +14,6 @@ Upon navigating to the page, the user will be first greeted with a login screen,
 
 ![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/Login.JPG "Login Screen")
 
-### Information Input
-
-Once logged in, the user can begin to input the data that they wish to track.
-
-![alt text](https://e-g-jackson.github.io/WellnessTracker/docs/InfoInput.JPG "Input Information")
 
 ### Display Information
 

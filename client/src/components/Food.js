@@ -3,6 +3,7 @@ import axios from "axios";
 import DBResults from "./DBResults"
 // import helper from "../../../routes/dataHelper"
 // import $ from "jquery";
+import {Animated} from "react-animated-css";
 
 class Food extends React.Component {
     state = {
@@ -24,6 +25,7 @@ class Food extends React.Component {
     
     render() {
         return (
+            <Animated animationIn="fadeIn" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"></div>
@@ -104,6 +106,7 @@ class Food extends React.Component {
                     <div className="col-md-3"></div>
                 </div>
             </div>
+            </Animated>
         );
     };
 };
