@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import { Animated } from "react-animated-css";
 
-var key = F2F_KEY;
+var key = '30e77a591ab3a009323f28be315be367';
+// var key = F2F_KEY;
 
 const style = {
     header:{
@@ -26,8 +28,8 @@ class Recipes extends React.Component {
         input: ""
     }
 
-    componentDidMount(){
-    }
+    // componentDidMount(){
+    // }
 
     getData(){
         let recipes = [];
@@ -37,12 +39,14 @@ class Recipes extends React.Component {
                 var divs = response.data.recipes.map((x) => {
                     console.log(x);
                     return(
-                        <div key = {x.recipe_id} className = 'row mb-4' style = {style.body}>
+                        <Animated key = {x.recipe_id} animationIn="fadeInUp" isVisible={true}>
+
+                        <div className = 'row mb-4' style = {style.body}>
                             <img className = 'col-4 img-fluid' src = {x.image_url} alt = {x.title} style = {style.image} />
                             <div className = 'col-8'>
-                                <a href = {x.source_url}>
-                                    <h2 style = {style.header}>
-                                        {x.title}
+                                <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">
+                                    <h2 style = {style.header} dangerouslySetInnerHTML = {{__html: x.title}}>
+                                        {/* {x.title} */}
                                     </h2>
                                 </a>
                                 <p>
@@ -52,10 +56,12 @@ class Recipes extends React.Component {
                                     Recipe Id: {x.recipe_id}
                                 </p>
                                 <p> 
-                                    Link: <a href = {x.source_url}>{x.source_url}</a>
+                                    Link: <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">{x.source_url}</a>
                                 </p>
                             </div>
                         </div>
+
+                        </Animated>
                     );
                 });
 
@@ -71,8 +77,9 @@ class Recipes extends React.Component {
         console.log(this.state)
         if (this.state.recipes === "") {
             return(
+                <Animated animationIn="fadeIn" isVisible={true}>
                 <div className = 'container bg-white py-3 px-5'>
-                    <div clasName = 'row'>
+                    <div className = 'row'>
                         <input 
                             className = 'form-input mx-2'
                             onChange = {
@@ -80,7 +87,7 @@ class Recipes extends React.Component {
                             }
                         />
                         <button
-                            className = 'btn btn-danger mx-3'
+                            className = 'btn btn-secondary mx-3'
                             onClick = {() => {this.getData()}}
                             >Submit
                         </button>
@@ -89,25 +96,30 @@ class Recipes extends React.Component {
                         <h3 style = {style.text}>Enter a value into the search bar and click submit to find new recipes!</h3>
                     </div>
                 </div>
+                </Animated>
             )
         } else {
             return(
-                <div div className = 'container bg-white py-3 px-5'>
+                <Animated animationIn="fadeIn" isVisible={true}>
+                <div className = 'container bg-white py-3 px-5'>
                     <div>
-                    <input 
-                        onChange = {
-                            (event) => {this.setState({input: event.target.value})}
-                        }
-                    />
-                    <button
-                        onClick = {() => {this.getData()}}
-                    >Submit</button>
+                        <input 
+                            onChange = {
+                                (event) => {this.setState({input: event.target.value})}
+                            }
+                        />
+                        <button
+                            className = 'btn btn-secondary mx-3'
+                            onClick = {() => {this.getData()}}
+                            >Submit
+                        </button>
                     </div>
                     <div className = 'container'>
                         <h1 style = {style.text}>Recipe Results:</h1>
                         {this.state.recipes}
                     </div>
                 </div>
+                </Animated>
             )
         }
     }

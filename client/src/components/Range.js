@@ -23,7 +23,7 @@ class Range extends Component {
 
   render() {
     return (
-      <Animated animationIn="fadeIn" isVisible={true}>
+      <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
       <div className="range">
         <input 
             type="range"

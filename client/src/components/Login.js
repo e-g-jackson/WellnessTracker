@@ -46,18 +46,11 @@ class Login extends React.Component {
         axios.get("/db/finduser/" + this.state.username + "/" + this.state.password)
             .then((response) => {
                 console.log(response)
-                if (response.data === true){
+                if (response.data.ans === true){
                     console.log(this.state)
-                    // const {username, password} = this.state;
-            
-                    // const userLogin = {
-                    //     username,
-                    //     password
-                    // };
-                    // console.log(userLogin)//needed?
-                    
                     console.log('USERNAME/PASSWORD accepted. Signing in!')
-                    this.props.authorize();
+                    console.log(response.data.data)
+                    this.props.authorize(response.data.data);
                 } else {
                     console.log('Sorry, nothing found. Try again, or create an account!')
                     this.setState({
@@ -69,17 +62,6 @@ class Login extends React.Component {
             }).catch((error) => {
                 throw error;
             })
-        // console.log(this.state)
-        // const {username, password} = this.state;
-
-        // const userLogin = {
-        //     username,
-        //     password
-        // };
-        
-        // console.log('sign in!')
-        // console.log(userLogin)//needed?
-        // console.log(this.props.authorize());//needed?
    }
 
     render() {
@@ -87,7 +69,7 @@ class Login extends React.Component {
         const {username, password} = this.state
 
         return (
-            <Animated animationIn="fadeIn" isVisible={true}>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"></div>
@@ -121,22 +103,19 @@ class Login extends React.Component {
                                         onChange={this.handleInputChange}
                                         />
                                     </div>
-                                    <div className="g-signin2" data-onsuccess="onSignIn">
-
-                                    <button 
-                                        type="button" 
-                                        className="btn btn-secondary"
-                                        onClick={(event)=>this.onSignIn(event)}
-                                        >Sign In
-                                    </button>
-                                  
+                                    <div className = 'd-inline'>
+                                        <button 
+                                            type="button" 
+                                            className="btn btn-secondary mr-5"
+                                            onClick={(event)=>this.onSignIn(event)}
+                                            >Sign In
+                                        </button>
+                                        <button 
+                                            type="submit" 
+                                            className="btn btn-secondary"
+                                            >Register
+                                        </button>
                                     </div>
-                                    <br/>
-                                    <button 
-                                        type="submit" 
-                                        className="btn btn-secondary"
-                                        >Register
-                                    </button>
                                 </form>
                             </div>
                         </div>

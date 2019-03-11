@@ -58,7 +58,7 @@ class Graph extends React.Component {
 
     render() {
         return (
-            <Animated animationIn="fadeIn" isVisible={true}>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className = "text-center">
                 <ReactFC
                     {...this.state.configs}/>

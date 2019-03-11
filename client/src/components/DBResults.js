@@ -6,7 +6,8 @@ class DBResults extends React.Component {
     state = {results: ""};
 
     componentDidMount(){
-        $.get("/db/getFoods", (res) => {
+        console.log(this.props.id)
+        $.get("/db/getFoods/" + this.props.id._id, (res) => {
             var foodData = res.slice(0).reverse().map((x, index) => {
                 var newIndex = index + 1;
                 return(
@@ -24,7 +25,7 @@ class DBResults extends React.Component {
 
     render(){
         return(
-          <Animated animationIn="fadeIn" is Visible={true}>
+          <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <table className = 'table'>
                 <thead className = 'thead-light'>
                     <tr>

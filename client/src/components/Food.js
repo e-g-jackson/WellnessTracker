@@ -9,13 +9,13 @@ class Food extends React.Component {
     state = {
         foodName: "",
         meal: "Breakfast",
-        foodType: "Protein"
+        foodType: "Protein",
+        userId: this.props.id._id
     }
 
     handleClickEvent(e){
         e.preventDefault();
         const data = this.state;
-        console.log(data);
 
         axios.post("/db/food", data)
             .then((response)=>{
@@ -25,7 +25,7 @@ class Food extends React.Component {
     
     render() {
         return (
-            <Animated animationIn="fadeIn" isVisible={true}>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"></div>
@@ -87,9 +87,6 @@ class Food extends React.Component {
                                     <button 
                                         type="submit" 
                                         className="btn btn-secondary" 
-                                        // onClick = {() => {
-                                        //     this.handleClickEvent();
-                                        // }}>
                                         >
                                         Save
                                     </button>
@@ -99,7 +96,9 @@ class Food extends React.Component {
                         <br/>
                         <div className="card">
                             <div className="card-body">
-                               <DBResults />
+                               <DBResults 
+                                    id={this.props.id}
+                                />
                             </div>
                         </div>
                     </div>
