@@ -97,7 +97,8 @@ class Food extends React.Component {
                         <div className="card">
                             <div className="card-body">
                                <DBResults 
-                                    id={this.props.id}/>
+                                    id={this.props.id}
+                                />
                             </div>
                         </div>
                     </div>

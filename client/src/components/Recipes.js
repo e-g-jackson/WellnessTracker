@@ -39,13 +39,14 @@ class Recipes extends React.Component {
                 var divs = response.data.recipes.map((x) => {
                     console.log(x);
                     return(
-                        <Animated animationIn="fadeInUp" isVisible={true}>
-                        <div key = {x.recipe_id} className = 'row mb-4' style = {style.body}>
+                        <Animated key = {x.recipe_id} animationIn="fadeInUp" isVisible={true}>
+
+                        <div className = 'row mb-4' style = {style.body}>
                             <img className = 'col-4 img-fluid' src = {x.image_url} alt = {x.title} style = {style.image} />
                             <div className = 'col-8'>
                                 <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">
-                                    <h2 style = {style.header}>
-                                        {x.title}
+                                    <h2 style = {style.header} dangerouslySetInnerHTML = {{__html: x.title}}>
+                                        {/* {x.title} */}
                                     </h2>
                                 </a>
                                 <p>
@@ -59,6 +60,7 @@ class Recipes extends React.Component {
                                 </p>
                             </div>
                         </div>
+
                         </Animated>
                     );
                 });
@@ -85,7 +87,7 @@ class Recipes extends React.Component {
                             }
                         />
                         <button
-                            className = 'btn btn-danger mx-3'
+                            className = 'btn btn-secondary mx-3'
                             onClick = {() => {this.getData()}}
                             >Submit
                         </button>
@@ -99,7 +101,7 @@ class Recipes extends React.Component {
         } else {
             return(
                 <Animated animationIn="fadeIn" isVisible={true}>
-                <div div className = 'container bg-white py-3 px-5'>
+                <div className = 'container bg-white py-3 px-5'>
                     <div>
                         <input 
                             onChange = {
@@ -107,6 +109,7 @@ class Recipes extends React.Component {
                             }
                         />
                         <button
+                            className = 'btn btn-secondary mx-3'
                             onClick = {() => {this.getData()}}
                             >Submit
                         </button>

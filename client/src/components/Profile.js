@@ -10,8 +10,9 @@ class Profile extends React.Component {
         weightData: null
     }
     componentDidMount(){
+        console.log(this.props.id)
         //GET Weight Data
-        axios.get("/db/getweights")
+        axios.get("/db/getweights/" + this.props.id._id)
             .then(response => {
                 const data = response.data;
                 const newList = [];
@@ -46,7 +47,9 @@ class Profile extends React.Component {
                     {/* <div className = 'col-2'></div> */}
 
                     <div className = 'col-6 py-3'>
-                        <DBResults />
+                        <DBResults 
+                            id = {this.props.id}
+                        />
 
                     </div>
                 </div>
