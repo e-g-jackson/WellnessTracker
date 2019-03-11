@@ -8,27 +8,46 @@ class Food extends React.Component {
         super(props);
         this.state = {
             weight: undefined,
-            data: undefined
+            data: undefined,
+            toggle: false
         };
     }
 
     componentDidMount(){
         this.getData();
     }
+    
+    componentDidUpdate(){
+        this.getData();
+    }
 
     handleClickEvent(e){
         e.preventDefault();
-        const data = {weight: this.state.weight};
+        const data = {
+            weight: this.state.weight,
+            userId: this.props.id._id
+        };
 
         axios.post("/db/weight", data)
             .then((response) => {
                 this.getData();
                 setTimeout(()=>{this.forceUpdate();},250)
             }).catch((error) => {throw error})
+        this.toggle()
+    }
+    toggle (){
+        if(!this.state.toggle){
+            console.log(this.state.toggle)
+            this.setState({toggle: true})
+        } else {
+            console.log(this.state.toggle);
+            this.setState({toggle: false})
+        }
+
     }
 
     getData(){
-        axios.get("/db/getweights")
+        axios.get("/db/getweights/" + this.props.id._id)
             .then(response => {
                 const data = response.data;
                 const newList = [];

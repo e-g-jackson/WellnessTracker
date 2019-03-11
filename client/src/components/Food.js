@@ -16,7 +16,6 @@ class Food extends React.Component {
     handleClickEvent(e){
         e.preventDefault();
         const data = this.state;
-        console.log(data);
 
         axios.post("/db/food", data)
             .then((response)=>{
@@ -25,7 +24,6 @@ class Food extends React.Component {
     }
     
     render() {
-        console.log(this.props.id)
         return (
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="container">
@@ -89,9 +87,6 @@ class Food extends React.Component {
                                     <button 
                                         type="submit" 
                                         className="btn btn-secondary" 
-                                        // onClick = {() => {
-                                        //     this.handleClickEvent();
-                                        // }}>
                                         >
                                         Save
                                     </button>

@@ -6,7 +6,6 @@ class DBResults extends React.Component {
     state = {results: ""};
 
     componentDidMount(){
-        //need to pass userId to backend
         console.log(this.props.id)
         $.get("/db/getFoods/" + this.props.id._id, (res) => {
             var foodData = res.slice(0).reverse().map((x, index) => {
