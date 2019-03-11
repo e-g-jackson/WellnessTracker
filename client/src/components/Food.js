@@ -9,7 +9,8 @@ class Food extends React.Component {
     state = {
         foodName: "",
         meal: "Breakfast",
-        foodType: "Protein"
+        foodType: "Protein",
+        userId: this.props.id._id
     }
 
     handleClickEvent(e){
@@ -24,6 +25,7 @@ class Food extends React.Component {
     }
     
     render() {
+        console.log(this.props.id)
         return (
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="container">
@@ -99,7 +101,8 @@ class Food extends React.Component {
                         <br/>
                         <div className="card">
                             <div className="card-body">
-                               <DBResults />
+                               <DBResults 
+                                    id={this.props.id}/>
                             </div>
                         </div>
                     </div>

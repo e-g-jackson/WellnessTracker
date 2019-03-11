@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import Graph from "./components/Graph";
@@ -18,12 +17,15 @@ class App extends Component {
     super(props);
 
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
+      userData: null
     }
   }
-  authChanger(){
+  authChanger(data){
+    console.log(data);
     this.setState({
-      isAuthenticated: true
+      isAuthenticated: true,
+      userData: data
     })
   }
 
@@ -43,7 +45,7 @@ class App extends Component {
           <div>
             <Navbar />
             <Header />
-            <Login authorize = {()=>this.authChanger()} />
+            <Login authorize = {(data)=>this.authChanger(data)} />
           </div>
         </Router>
       )
@@ -57,38 +59,50 @@ class App extends Component {
 
           <Route exact path = "/" render={() => {
             return(
-              <Profile />
+              <Profile  
+                id={this.state.userData}
+              />
             )
             }}
           />
 
           <Route exact path="/profile" render={() => {
             return (
-              <Profile />
+              <Profile  
+                id={this.state.userData}
+              />
             )
           }} />
 
           <Route exact path="/food" render={() => {
             return (
-              <Food />
+              <Food 
+                id={this.state.userData}
+              />
             )
           }} />
 
           <Route exact path="/types" render={() => {
             return (
-              <FoodGraph />
+              <FoodGraph  
+                id={this.state.userData}
+              />
             )
           }} />
 
           <Route exact path="/progress" render={() => {
             return (
-              <Graph />
+              <Graph  
+                id={this.state.userData}
+              />
               )
           }} />
 
           <Route exact path="/weightsubmit" render={()=>{
             return(
-              <WeightSubmit />
+              <WeightSubmit  
+                id={this.state.userData}
+              />
             )
           }}/>
 
@@ -101,7 +115,9 @@ class App extends Component {
 
           <Route exact path="/recipes" render={() => {
             return (
-              <Recipes />
+              <Recipes  
+                id={this.state.userData}
+              />
             )
           }} />
         </div>
