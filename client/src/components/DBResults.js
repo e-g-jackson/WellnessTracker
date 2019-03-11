@@ -24,7 +24,7 @@ class DBResults extends React.Component {
 
     render(){
         return(
-          <Animated animationIn="fadeIn" is Visible={true}>
+          <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <table className = 'table'>
                 <thead className = 'thead-light'>
                     <tr>

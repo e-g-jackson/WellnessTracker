@@ -46,7 +46,7 @@ class Login extends React.Component {
         axios.get("/db/finduser/" + this.state.username + "/" + this.state.password)
             .then((response) => {
                 console.log(response)
-                if (response.data === true){
+                if (response.data.ans === true){
                     console.log(this.state)
                     // const {username, password} = this.state;
             
@@ -87,7 +87,7 @@ class Login extends React.Component {
         const {username, password} = this.state
 
         return (
-            <Animated animationIn="fadeIn" isVisible={true}>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"></div>
@@ -121,22 +121,22 @@ class Login extends React.Component {
                                         onChange={this.handleInputChange}
                                         />
                                     </div>
-                                    <div className="g-signin2" data-onsuccess="onSignIn">
-
+                                    {/* <div className="g-signin2" data-onsuccess="onSignIn"> */}
+                                    <div className = 'd-inline'>
                                     <button 
                                         type="button" 
-                                        className="btn btn-secondary"
+                                        className="btn btn-secondary mr-5"
                                         onClick={(event)=>this.onSignIn(event)}
                                         >Sign In
                                     </button>
                                   
-                                    </div>
-                                    <br/>
+                                    {/* </div> */}
                                     <button 
                                         type="submit" 
                                         className="btn btn-secondary"
                                         >Register
                                     </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

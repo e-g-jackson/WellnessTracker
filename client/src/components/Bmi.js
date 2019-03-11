@@ -37,7 +37,7 @@ class Bmi extends Component {
 
   render() {
     return (
-      <Animated animationIn="fadeIn" isVisible={true}>
+      <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
       <div className="Bmi">
         <h1>Calculate Your BMI</h1>
         <form>

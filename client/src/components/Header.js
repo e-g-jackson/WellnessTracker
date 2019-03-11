@@ -5,7 +5,7 @@ import {Animated} from "react-animated-css";
 class Header extends React.Component{
     render(){
         return(
-            <Animated animationIn="fadeInDown" isVisible={true}>
+            <Animated animationIn="fadeInDown" animationOut="fadeOut" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">

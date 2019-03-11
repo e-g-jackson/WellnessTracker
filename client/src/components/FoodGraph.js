@@ -14,6 +14,8 @@ import Column2D from 'fusioncharts/fusioncharts.charts';
 // Step 5 - Including the theme as fusion
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
+import { Animated } from 'react-animated-css';
+
 // Step 6 - Adding the chart as dependency to the core fusioncharts
 ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
@@ -55,16 +57,18 @@ const chartConfigs = {
 class FoodGraph extends React.Component {
   render() {
      return (
-        <div className="container">
-            <div className="row">
-                 <div className="col-md-2"></div>
-                 <div className="col-md-10 ">
-                     <h1 className="text-left">Food Types</h1>
-                     <ReactFC
-                         {...chartConfigs} />
-                 </div>
+        <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-2"></div>
+                    <div className="col-md-10 ">
+                        <h1 className="text-left">Food Types</h1>
+                        <ReactFC
+                            {...chartConfigs} />
+                    </div>
+                </div>
             </div>
-        </div>
+        </Animated>
         );
     }
 }

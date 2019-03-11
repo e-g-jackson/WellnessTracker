@@ -26,7 +26,7 @@ class Result extends Component {
     let pounds = this.toLbs(weight); 
 
     return (
-      <Animated animationIn="fadeIn" isVisible={true}>
+      <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
       <div className="result">
         <h3>
           {heightFeet} ft

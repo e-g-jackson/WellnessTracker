@@ -25,7 +25,7 @@ class Food extends React.Component {
     
     render() {
         return (
-            <Animated animationIn="fadeIn" isVisible={true}>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3"></div>

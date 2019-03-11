@@ -34,7 +34,7 @@ class Profile extends React.Component {
     }
     render() {
         return (
-          <Animated animationIn="fadeIn" isVisible={true}>
+          <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className = 'container bg-white'>
                 <div className = 'row'>
                     <div className = 'col-6'>

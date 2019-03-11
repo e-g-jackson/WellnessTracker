@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Animated } from "react-animated-css";
 
 var key = '30e77a591ab3a009323f28be315be367';
 // var key = F2F_KEY;
@@ -27,8 +28,8 @@ class Recipes extends React.Component {
         input: ""
     }
 
-    componentDidMount(){
-    }
+    // componentDidMount(){
+    // }
 
     getData(){
         let recipes = [];
@@ -38,10 +39,11 @@ class Recipes extends React.Component {
                 var divs = response.data.recipes.map((x) => {
                     console.log(x);
                     return(
+                        <Animated animationIn="fadeInUp" isVisible={true}>
                         <div key = {x.recipe_id} className = 'row mb-4' style = {style.body}>
                             <img className = 'col-4 img-fluid' src = {x.image_url} alt = {x.title} style = {style.image} />
                             <div className = 'col-8'>
-                                <a href = {x.source_url}>
+                                <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">
                                     <h2 style = {style.header}>
                                         {x.title}
                                     </h2>
@@ -53,10 +55,11 @@ class Recipes extends React.Component {
                                     Recipe Id: {x.recipe_id}
                                 </p>
                                 <p> 
-                                    Link: <a href = {x.source_url}>{x.source_url}</a>
+                                    Link: <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">{x.source_url}</a>
                                 </p>
                             </div>
                         </div>
+                        </Animated>
                     );
                 });
 
@@ -72,8 +75,9 @@ class Recipes extends React.Component {
         console.log(this.state)
         if (this.state.recipes === "") {
             return(
+                <Animated animationIn="fadeIn" isVisible={true}>
                 <div className = 'container bg-white py-3 px-5'>
-                    <div clasName = 'row'>
+                    <div className = 'row'>
                         <input 
                             className = 'form-input mx-2'
                             onChange = {
@@ -90,9 +94,11 @@ class Recipes extends React.Component {
                         <h3 style = {style.text}>Enter a value into the search bar and click submit to find new recipes!</h3>
                     </div>
                 </div>
+                </Animated>
             )
         } else {
             return(
+                <Animated animationIn="fadeIn" isVisible={true}>
                 <div div className = 'container bg-white py-3 px-5'>
                     <div>
                         <input 
@@ -110,6 +116,7 @@ class Recipes extends React.Component {
                         {this.state.recipes}
                     </div>
                 </div>
+                </Animated>
             )
         }
     }
