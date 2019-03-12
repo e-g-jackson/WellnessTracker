@@ -1,6 +1,7 @@
 module.exports = (app, db) => {
-    app.get('/db/getweights', (req, res) => {
-        db.weight.find({}, function(err, result){
+    //gets user weight submissions for graph
+    app.get('/db/getweights/:id', (req, res) => {
+        db.weight.find({userId: req.params.id}, function(err, result){
             if(err){
                 throw err;
             } else {
@@ -10,6 +11,7 @@ module.exports = (app, db) => {
         });
     });
 
+    //searches for user data
     app.get('/db/finduser/:username/:password', (req, res) => {
         const UN = req.params.username;
         const PW = req.params.password
@@ -18,22 +20,32 @@ module.exports = (app, db) => {
                 throw err;
             } else {
                 let match = false;
+                let idIndex = "";
                 for( var i = 0; i < result.length; i++){
                     if(result[i].username === UN && result[i].password === PW){
                         match = true
+                        idIndex = result[i];
                     }
                 }
                 if(match === true){
-                    res.send(true)
+                    var fullResponse = {
+                        ans:true,
+                        data: idIndex
+                    }
+                    res.send(fullResponse)
                 } else {
-                    res.send(false)
+                    var fullResponse = {
+                        ans: false,
+                        data: null
+                    }
+                    res.send(fullResponse)
                 }
             }
         })
     })
-
-    app.get('/db/getFoods', (req, res) => {
-        db.food.find({}, function(err, result){
+    //gets user food data
+    app.get('/db/getFoods/:id', (req, res) => {
+        db.food.find({userId: req.params.id}, function(err, result){
             if (err){
                 throw err;
             } else {
@@ -41,14 +53,16 @@ module.exports = (app, db) => {
             }
         })
     })
-    
+
+    //creates new user
     app.post('/db/newuser', (req, res) => {
         console.log(req.body)
         db.users.create(req.body).then(() => {
         res.send('Welcome ' + req.body.username + '!')
         });
     });
-    
+
+    //posts food data
     app.post('/db/food', function(req, res){
         console.log(req.body)
         db.food.create(req.body).then(() => {
@@ -56,6 +70,7 @@ module.exports = (app, db) => {
         });
     });
 
+    //posts weight data
     app.post('/db/weight', function(req, res){
         console.log(req.body);
         db.weight.create(req.body).then(() => {

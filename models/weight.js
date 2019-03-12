@@ -5,7 +5,11 @@ var Schema = mongoose.Schema
 var newWeight = new Schema ({
     weight: {
         type: Number, 
-        required: false
+        required: true
+    },
+    userId:{
+        type: String,
+        required: true
     }
 },{
     timestamps: true

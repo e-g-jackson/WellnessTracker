@@ -43,8 +43,6 @@ class Profile extends React.Component {
                             data = {this.state.weightData}
                         />
                     </div>
-                    
-                    {/* <div className = 'col-2'></div> */}
 
                     <div className = 'col-6 py-3'>
                         <DBResults 
