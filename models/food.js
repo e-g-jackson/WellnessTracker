@@ -5,15 +5,19 @@ var Schema = mongoose.Schema;
 var newFood = new Schema ({
     foodName: {
         type: String,
-        required: false
+        required: true
     },
     meal: {
         type: String,
-        required: false
+        required: true
     },
     foodType: {
         type: String,
-        required: false
+        required: true
+    },
+    userId:{
+        type: String,
+        required: true
     }
 },{
     timestamps:true
