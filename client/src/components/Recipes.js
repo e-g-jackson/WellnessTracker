@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Animated } from "react-animated-css";
 
-var key = F2F_KEY;
+var key = '30e77a591ab3a009323f28be315be367';
+// var key = F2F_KEY;
 
 const style = {
     header:{
