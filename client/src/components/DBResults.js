@@ -12,7 +12,7 @@ class DBResults extends React.Component {
                 return(
                     <tr key = {newIndex}>
                         <th>{newIndex}</th>
-                        <td>{x.foodName}</td>
+                        <td>{x.foodName.toUpperCase()}</td>
                         <td>{x.meal}</td>
                         <td>{x.foodType}</td>
                         <td>{x.portion}</td>
