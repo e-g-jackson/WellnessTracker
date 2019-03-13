@@ -22,19 +22,37 @@ class WeightTable extends React.Component {
         })
     }
     render(){
-        return(
-            <table className = 'thead-light'>
-                <thead className = 'thead-light'>
-                    <tr>
-                        <th scope = 'col'>Created:</th>
-                        <th scope = 'col'>Weight</th>
-                    </tr>
-                </thead>
-                <tbody className = 'table-striped table-hover'>
-                    {this.state.results}
-                </tbody>
-            </table>
-        )
+        if(this.state.results === ""){
+            return(
+                <table className = 'table'>
+                    <thead className = 'thead-light'>
+                        <tr>
+                            <th scope = 'col'>Created:</th>
+                            <th scope = 'col'>Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody className = 'table-striped table-hover'>
+                        <td>-#-</td>
+                        <td>-#-</td>
+                    </tbody>
+                </table>
+            )
+        } else {
+            return(
+                <table className = 'table'>
+                    <thead className = 'thead-light'>
+                        <tr>
+                            <th scope = 'col'>Created:</th>
+                            <th scope = 'col'>Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody className = 'table-striped table-hover'>
+                        {this.state.results}
+                    </tbody>
+                </table>
+            )
+
+        }
     }
 }
 
