@@ -44,7 +44,7 @@ class Profile extends React.Component {
                                 data = {this.state.weightData}
                             />
                             <WeightTable 
-                                data = {this.state.weightData} 
+                                id = {this.props.id} 
                             />
                         </div>
 

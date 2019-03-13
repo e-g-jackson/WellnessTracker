@@ -38,12 +38,14 @@ class DBResults extends React.Component {
                           </tr>
                       </thead>
                       <tbody className = 'table-striped table-hover'>
+                        <tr>
                           <td>-#-</td>
                           <td>-#-</td>
                           <td>-#-</td>
                           <td>-#-</td>
                           <td>-#-</td>
                           <td>-#-</td>
+                        </tr>
                       </tbody>
                   </table>
                 </Animated>

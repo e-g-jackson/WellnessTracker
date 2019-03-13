@@ -1,17 +1,20 @@
 import React from 'react';
+import $ from 'jquery';
 
 class WeightTable extends React.Component {
+    state = {
+        results: ""
+    }
+
     componentDidMount(){
         $.get("/db/getWeights/" + this.props.id._id, (res) => {
+            console.log(res)
             var foodData = res.slice(0).reverse().map((x, index) => {
                 var newIndex = index + 1;
                 return(
                     <tr key = {newIndex}>
-                        <th>{newIndex}</th>
-                        <td>{x.foodName}</td>
-                        <td>{x.meal}</td>
-                        <td>{x.foodType}</td>
-                        <td>{x.portion}</td>
+                        <th>{x.createdAt.split("T")[0]}</th>
+                        <td>{x.weight}</td>
                     </tr>
                 )
            });
@@ -20,7 +23,19 @@ class WeightTable extends React.Component {
     }
     render(){
         return(
-            <h2>Hi</h2>
+            <table className = 'thead-light'>
+                <thead className = 'thead-light'>
+                    <tr>
+                        <th scope = 'col'>Created:</th>
+                        <th scope = 'col'>Weight</th>
+                    </tr>
+                </thead>
+                <tbody className = 'table-striped table-hover'>
+                    {this.state.results}
+                </tbody>
+            </table>
         )
     }
 }
+
+export default WeightTable;
