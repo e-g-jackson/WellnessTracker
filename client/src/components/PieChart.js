@@ -6,6 +6,9 @@ import ReactFusioncharts from 'react-fusioncharts';
 charts(FusionCharts);
 
 class PieChart extends React.Component {
+    state = {
+        data: {}
+    }
     componentDidMount(){
         this.getData();
     }
@@ -15,57 +18,57 @@ class PieChart extends React.Component {
 
             let proteinData = {
                 "label": "Protein",
-                "value": 0
+                "value": "0"
             }
             let carbData = {
                 "label": "Carb",
-                "value": 0
+                "value": "0"
             }
             let fruitData = {
                 "label": "Fruit",
-                "value": 0
+                "value": "0"
             }
             let vegetableData = {
                 "label": "Vegetable",
-                "value": 0
+                "value": "0"
             }
-
-            console.log(res)
 
             const chartData = res.map((x) => {
                 if(x.foodType === "Protein"){
-                    console.log('new protein')
                     let newProtein = parseInt(x.portion);
-                    proteinData.value += newProtein;
+                    let oldProtein = parseInt(proteinData.value);
+                    let newProteinFormat = newProtein += oldProtein;
+                    proteinData.value = newProteinFormat.toString();
                 } else if (x.foodType === "Carb"){
-                    console.log('new carb')
                     let newCarb = parseInt(x.portion);
-                    carbData.value += newCarb;
+                    let oldCarb = parseInt(carbData.value);
+                    let newCarbFormat = newCarb + oldCarb;
+                    carbData.value = newCarbFormat.toString();
                 } else if (x.foodType === "Fruit"){
-                    console.log('new fruit')
                     let newFruit = parseInt(x.portion);
-                    fruitData.value += newFruit;
+                    let oldFruit = parseInt(fruitData.value);
+                    let newFruitFormat = newFruit += oldFruit;
+                    fruitData.value = newFruitFormat.toString();
                 } else if (x.foodType === "Vegetable"){
-                    console.log('new vegetable')
                     let newVegetable = parseInt(x.portion);
-                    vegetableData.value += newVegetable;
+                    let oldVegetable = parseInt(fruitData.value);
+                    let newVegetableFormat = newVegetable += oldVegetable;
+                    vegetableData.value = newVegetableFormat.toString();
                 }
                 let newData = [
                     proteinData,
                     carbData,
                     fruitData,
                     vegetableData
-                ]
-                return(newData)
+                ];
+                return(newData);
             });
             
-            console.log(chartData[0]);
-            this.chartMaker(chartData[0]);
+            this.setState({data: chartData[0]});
         })
     }
 
-    chartMaker(data){
-        console.log(data)
+    render(){
         const dataSource = {
             "chart": {
               "caption": "Foods",
@@ -76,21 +79,14 @@ class PieChart extends React.Component {
               "usedataplotcolorforlabels": "1",
               "theme": "fusion"
             },
-            "data": data
+            "data": this.state.data
           };
-        //   this.dataSource = dataSource
-        this.render(dataSource)
-    }
 
-    // dataSource = {};
-
-    render(dataSource){
-        console.log(dataSource)
         return(
         <ReactFusioncharts
             type = "pie2d"
-            width = '100%'
-            height = '100%'
+            width = '500'
+            height = '500'
             dataFormat = "JSON"
             dataSource = {dataSource} 
         />
@@ -99,3 +95,36 @@ class PieChart extends React.Component {
 }
 
 export default PieChart
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// charts(FusionCharts);
+// let data = () => {
+//     this.
+// }
+
+// const dataSource = {
+//   "chart": {
+//     "caption": "Market Share of Web Servers",
+//     "plottooltext": "<b>$percentValue</b> of web servers run on $label servers",
+//     "showlegend": "1",
+//     "showpercentvalues": "1",
+//     "legendposition": "bottom",
+//     "usedataplotcolorforlabels": "1",
+//     "theme": "fusion"
+//   },
+//   "data": [data]
+// };
+
+// class MyComponent extends React.Component {
+//    render() {
+//       return (
+//       <ReactFusioncharts
+//          type = "pie2d"
+//          width = '500'
+//          height = '500'
+//          dataFormat = "JSON"
+//          dataSource = {dataSource} />
+//       );
+//    }
+// }
+// export default MyComponent

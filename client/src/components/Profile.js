@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Graph from "./Graph";
+import WeightTable from "./WeightTable";
 import PieChart from "./PieChart";
 import DBResults from "./DBResults";
 import {Animated} from "react-animated-css";
@@ -11,7 +12,6 @@ class Profile extends React.Component {
         weightData: null
     }
     componentDidMount(){
-        console.log(this.props.id)
         //GET Weight Data
         axios.get("/db/getweights/" + this.props.id._id)
             .then(response => {
@@ -43,13 +43,16 @@ class Profile extends React.Component {
                             <Graph 
                                 data = {this.state.weightData}
                             />
+                            <WeightTable 
+                                data = {this.state.weightData} 
+                            />
                         </div>
 
                         <div className = 'col-xs-12 col-md-6 py-3'>
                             <PieChart
                                 id = {this.props.id}
                             />
-                            
+
                             <DBResults 
                                 id = {this.props.id}
                             />

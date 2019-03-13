@@ -22,7 +22,6 @@ class App extends Component {
     }
   }
   authChanger(data){
-    console.log(data);
     this.setState({
       isAuthenticated: true,
       userData: data

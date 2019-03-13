@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import DBResults from "./DBResults";
 import PieChart from "./PieChart";
-import {Animated} from "react-animated-css";
+import { Animated } from "react-animated-css";
 
 class Food extends React.Component {
     state = {

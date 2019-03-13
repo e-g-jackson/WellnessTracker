@@ -26,11 +26,10 @@ class Login extends React.Component {
             username,
             password
         };
-        console.log(userSignUp)
 
         axios.post("/db/newuser", userSignUp)
             .then((response)=>{
-                console.log(response)
+                console.log("user#: " + response._id)
             }).catch((error) => {
                 throw error
             })
@@ -38,21 +37,14 @@ class Login extends React.Component {
 
    onSignIn (event){
         event.preventDefault();
-        console.log('sign in attempted...')
-        const newLogin =  {username: this.state.username, password: this.state.password}
-        console.log('newLogin:')
-        console.log(newLogin)
-        // axios.get("/db/finduser", newLogin)
+        console.log('Sign in attempted...')
         axios.get("/db/finduser/" + this.state.username + "/" + this.state.password)
             .then((response) => {
-                console.log(response)
                 if (response.data.ans === true){
-                    console.log(this.state)
-                    console.log('USERNAME/PASSWORD accepted. Signing in!')
-                    console.log(response.data.data)
+                    console.log('Signing in!')
                     this.props.authorize(response.data.data);
                 } else {
-                    console.log('Sorry, nothing found. Try again, or create an account!')
+                    alert('Sorry, nothing found. Try again, or create an account!')
                     this.setState({
                         username: "",
                         password: ""
