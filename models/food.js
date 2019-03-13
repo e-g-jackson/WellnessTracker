@@ -15,6 +15,10 @@ var newFood = new Schema ({
         type: String,
         required: true
     },
+    portion: {
+        type: String,
+        required: true
+    },
     userId:{
         type: String,
         required: true

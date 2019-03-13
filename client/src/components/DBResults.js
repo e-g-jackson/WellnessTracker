@@ -16,6 +16,7 @@ class DBResults extends React.Component {
                         <td>{x.foodName}</td>
                         <td>{x.meal}</td>
                         <td>{x.foodType}</td>
+                        <td>{x.portion}</td>
                     </tr>
                 )
            });
@@ -33,6 +34,7 @@ class DBResults extends React.Component {
                         <th scope = 'col'>Food Name</th>
                         <th scope = 'col'>Meal</th>
                         <th scope = 'col'>Food Type</th>
+                        <th scope = 'col'>Portion</th>
                     </tr>
                 </thead>
                 <tbody className = 'table-striped table-hover'>
