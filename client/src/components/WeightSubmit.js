@@ -74,8 +74,8 @@ class Food extends React.Component {
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
+                    {/* <div className="col-md-3"></div> */}
+                    <div className="col-md-12">
                     <h2>Daily Weight Tracker</h2>
                     <h3>Current Date</h3>
                         <div className="card">
@@ -114,7 +114,7 @@ class Food extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3"></div>
+                    {/* <div className="col-md-3"></div> */}
                 </div>
             </div>
             </Animated>

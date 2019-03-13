@@ -34,7 +34,7 @@ class Graph extends React.Component {
             const graphData = this.state.data.data
             const chartConfigs = {
                 type: 'column2d',
-                width: '500',
+                width: '100%',
                 height: '400',
                 dataFormat: 'json',
                 dataSource: {

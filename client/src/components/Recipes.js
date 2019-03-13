@@ -28,9 +28,6 @@ class Recipes extends React.Component {
         input: ""
     }
 
-    // componentDidMount(){
-    // }
-
     getData(){
         let recipes = [];
         axios.get('https://www.food2fork.com/api/search?key=' + key + '&q=' + this.state.input)
