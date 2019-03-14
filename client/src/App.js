@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Food from './components/Food';
 import WeightSubmit from './components/WeightSubmit';
+import SavedRecipes from './components/SavedRecipes';
 import Recipes from './components/Recipes';
 import Navbar from './components/Navbar';
 import FoodGraph from './components/FoodGraph';
@@ -33,10 +34,6 @@ class App extends Component {
   }
 
   render() {
-    // const childProps = {
-    //   isAuthenticated: this.state.isAuthenticated,
-    //   userHasAuthenticated: this.userHasAuthenticated
-    // };
 
     if(this.state.isAuthenticated === false){
       return(
@@ -114,9 +111,11 @@ class App extends Component {
 
           <Route exact path="/recipes" render={() => {
             return (
-              <Recipes  
-                id={this.state.userData}
-              />
+              <div>
+                <Recipes  
+                  id={this.state.userData}
+                />
+              </div>
             )
           }} />
         </div>

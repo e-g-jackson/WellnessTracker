@@ -20,6 +20,7 @@ class Food extends React.Component {
         axios.post("/db/food", data)
             .then((response)=>{
                 console.log(response)
+                this.forceUpdate();
             }).catch((error) => {throw error})
     }
     
@@ -110,16 +111,14 @@ class Food extends React.Component {
                             </div>
                         </div>
                         <br/>
-                        <div className="card mb-4">
-                            <div className="card-body">
-                               <PieChart 
-                                    id={this.props.id}
+                        <div className = 'row'>
+                            <div className = 'col-6'>
+                                <PieChart
+                                    id= {this.props.id}
                                 />
                             </div>
-                        </div>
-                        <div className="card">
-                            <div className="card-body">
-                               <DBResults 
+                            <div className = 'col-6 p-3' style = {{backgroundColor: "#ffffff"}}>
+                                <DBResults
                                     id={this.props.id}
                                 />
                             </div>

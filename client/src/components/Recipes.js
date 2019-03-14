@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import SavedRecipes from './SavedRecipes'
 import { Animated } from "react-animated-css";
 
 var key = '30e77a591ab3a009323f28be315be367';
@@ -94,6 +95,11 @@ class Recipes extends React.Component {
                 <Animated animationIn="fadeIn" isVisible={true}>
                     <div className = 'container bg-white py-3 px-5'>
                         <div className = 'row'>
+                            <SavedRecipes 
+                                id = {this.props.id}    
+                            />
+                        </div>
+                        <div className = 'row'>
                             <input 
                                 className = 'form-input mx-2'
                                 onChange = {
@@ -116,6 +122,11 @@ class Recipes extends React.Component {
             return(
                 <Animated animationIn="fadeIn" isVisible={true}>
                     <div className = 'container bg-white py-3 px-5'>
+                        <div className = 'row'>
+                            <SavedRecipes 
+                                id = {this.props.id}    
+                            />
+                        </div>
                         <div>
                             <input 
                                 onChange = {

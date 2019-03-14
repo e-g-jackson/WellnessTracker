@@ -10,13 +10,13 @@ class SavedRecipes extends React.Component {
             console.log(res)
             const recipes = res.map((x) => {
                 return(
-                    <ul key = {x.recipeId}>
-                        <a href = {x.title}>
+                    <li className = "" key = {x.recipeId}>
+                        <a href = {x.link} target = "_blank" rel = "noopener noreferrer">
                             <h5>
                                 {x.title}
                             </h5>
                         </a>
-                    </ul>
+                    </li>
                 )
             })
             this.setState({
@@ -30,7 +30,7 @@ class SavedRecipes extends React.Component {
         }
         return(
             <div>
-                <h3 className = "pl-5">Saved Recipes:</h3>
+                <h4 className = "p-3" style = {{backgroundColor: "rgb(170, 37, 37)", color: "#ffffff"}}>Saved Recipes:</h4>
                 <br />
                 <ul>
                     {this.state.recipes}

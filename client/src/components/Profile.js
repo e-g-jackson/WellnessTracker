@@ -40,9 +40,7 @@ class Profile extends React.Component {
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
                 <div className = 'container bg-white'>
                     <div className = 'row'>
-                        <SavedRecipes 
-                            id = {this.props.id}
-                        />
+                        <h1>Welcome back {this.props.id.username}!</h1>
                     </div>
                     <div className = 'row'>
                         <div className = 'col-xs-12 col-md-6'>
@@ -60,6 +58,10 @@ class Profile extends React.Component {
                             />
 
                             <DBResults 
+                                id = {this.props.id}
+                            />
+
+                            <SavedRecipes 
                                 id = {this.props.id}
                             />
 
