@@ -6,7 +6,6 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Food from './components/Food';
 import WeightSubmit from './components/WeightSubmit';
-import SavedRecipes from './components/SavedRecipes';
 import Recipes from './components/Recipes';
 import Navbar from './components/Navbar';
 import FoodGraph from './components/FoodGraph';

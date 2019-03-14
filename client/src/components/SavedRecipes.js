@@ -11,11 +11,10 @@ class SavedRecipes extends React.Component {
             const recipes = res.map((x) => {
                 return(
                     <li className = "" key = {x.recipeId}>
-                        <a href = {x.link} target = "_blank" rel = "noopener noreferrer">
-                            <h5>
-                                {x.title}
-                            </h5>
-                        </a>
+                        <h5>
+                            <a href = {x.link} target = "_blank" rel = "noopener noreferrer">
+                                {x.title}</a> from <em>{x.publisher}</em>
+                        </h5>
                     </li>
                 )
             })
@@ -29,12 +28,16 @@ class SavedRecipes extends React.Component {
             return(<h3><em>No Recipes saved yet!</em></h3>)
         }
         return(
-            <div>
-                <h4 className = "p-3" style = {{backgroundColor: "rgb(170, 37, 37)", color: "#ffffff"}}>Saved Recipes:</h4>
-                <br />
-                <ul>
-                    {this.state.recipes}
-                </ul>
+            <div style = {{width: "100%"}}>
+                <div className = "text-center">
+                    <h4 className = "p-2" style = {{backgroundColor: "rgb(170, 37, 37)", color: "#ffffff", width: "100%"}}>Saved Recipes:</h4>
+                    <br />
+                </div>
+                <div className = "pl-5">
+                    <ul>
+                        {this.state.recipes}
+                    </ul>
+                </div>
             </div>
         )
     }

@@ -7,9 +7,14 @@ charts(FusionCharts);
 
 class PieChart extends React.Component {
     state = {
-        data: {}
+        data: "",
+        dataLength: 0
     }
     componentDidMount(){
+        this.getData();
+    }
+
+    componentDidUpdate(){
         this.getData();
     }
 
@@ -32,7 +37,7 @@ class PieChart extends React.Component {
                 "label": "Vegetable",
                 "value": "0"
             }
-
+            let dataNum = res.length
             const chartData = res.map((x) => {
                 if(x.foodType === "Protein"){
                     let newProtein = parseInt(x.portion);
@@ -63,34 +68,59 @@ class PieChart extends React.Component {
                 ];
                 return(newData);
             });
+            console.log(this.state)
+            const P1 = proteinData.value
+            console.log(P1)
             
-            this.setState({data: chartData[0]});
+            
+            if(this.state.data === ""){
+                this.setState({
+                    data: chartData[0],
+                    dataLength: dataNum
+                });
+            } else if (dataNum !== this.state.dataLength){
+                this.setState({
+                    data: chartData[0],
+                    dataLength: dataNum
+                })
+            } else {
+                console.log('nothing has changed')
+            }
+            console.log(this.state)
         })
     }
 
     render(){
-        const dataSource = {
-            "chart": {
-              "caption": "Foods",
-              "plottooltext": "Shows foods consumed by portion size",
-              "showlegend": "1",
-              "showpercentvalues": "1",
-              "legendposition": "bottom",
-              "usedataplotcolorforlabels": "1",
-              "theme": "fusion"
-            },
-            "data": this.state.data
-          };
+        if(this.state.data === {}){
+            return(
+                <div style = {{backgroundColor: "#ffffff"}}>
+                    <h2>"No data yet..."</h2>
+                </div>
+            )
+        } else {
+            const dataSource = {
+                "chart": {
+                "caption": "Foods",
+                "plottooltext": "Shows foods consumed by portion size",
+                "showlegend": "1",
+                "showpercentvalues": "1",
+                "legendposition": "bottom",
+                "usedataplotcolorforlabels": "1",
+                "theme": "fusion"
+                },
+                "data": this.state.data
+            };
 
-        return(
-        <ReactFusioncharts
-            type = "pie2d"
-            width = '500'
-            height = '500'
-            dataFormat = "JSON"
-            dataSource = {dataSource} 
-        />
-        )
+            return(
+                <ReactFusioncharts
+                    type = "pie2d"
+                    width = '500'
+                    height = '500'
+                    dataFormat = "JSON"
+                    dataSource = {dataSource} 
+                />
+            )
+        }
     }
 }
 

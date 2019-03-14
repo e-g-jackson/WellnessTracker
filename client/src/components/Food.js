@@ -21,6 +21,13 @@ class Food extends React.Component {
             .then((response)=>{
                 console.log(response)
                 this.forceUpdate();
+                // this.setState({
+                //     foodName: "",
+                //     meal: "Breakfast",
+                //     foodType: "Protein",
+                //     portion: "1",
+                //     userId: this.props.id._id
+                // });
             }).catch((error) => {throw error})
     }
     
@@ -31,8 +38,7 @@ class Food extends React.Component {
                 <div className="row">
                     {/* <div className="col-md-2"></div> */}
                     <div className="col-md-12">
-                    <h2>Daily Food Tracker</h2>
-                    <h3>Current Date</h3>
+                    <h2 className = "text-center py-2" style = {{backgroundColor:"rgb(170, 37, 37)", color: "#ffffff", width: "100%"}}>Daily Food Tracker</h2>
                         <div className="card">
                             <div className="card-body">
                                 <form onSubmit = {(event) => this.handleClickEvent(event)}>

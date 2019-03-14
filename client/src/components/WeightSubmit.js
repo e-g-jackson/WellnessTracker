@@ -76,8 +76,7 @@ class Food extends React.Component {
                 <div className="row">
                     {/* <div className="col-md-3"></div> */}
                     <div className="col-md-12">
-                    <h2>Daily Weight Tracker</h2>
-                    <h3>Current Date</h3>
+                    <h2 className = "text-center py-2" style = {{backgroundColor:"rgb(170, 37, 37)", color: "#ffffff", width: "100%"}}>Daily Weight Tracker</h2>
                         <div className="card">
                             <div className="card-body">
                                 <form onSubmit = {(event) => this.handleClickEvent(event)}>
