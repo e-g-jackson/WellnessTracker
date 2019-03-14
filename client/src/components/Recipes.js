@@ -3,7 +3,8 @@ import axios from 'axios';
 import SavedRecipes from './SavedRecipes'
 import { Animated } from "react-animated-css";
 
-const key = process.env.F2F_KEY;
+var key = '30e77a591ab3a009323f28be315be367';
+// key = F2F_KEY;
 
 const style = {
     header:{
