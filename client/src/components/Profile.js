@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import SavedRecipes from "./SavedRecipes"
 import Graph from "./Graph";
 import WeightTable from "./WeightTable";
 import PieChart from "./PieChart";
@@ -39,6 +40,11 @@ class Profile extends React.Component {
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
                 <div className = 'container bg-white'>
                     <div className = 'row'>
+                        <h1 className = 'text-center py-2' style = {{backgroundColor:"rgb(170, 37, 37)", color:"#ffffff", width: "100%"}}>Welcome back {this.props.id.username}!</h1>
+                    </div>
+                    <br />
+                    <br />
+                    <div className = 'row'>
                         <div className = 'col-xs-12 col-md-6'>
                             <Graph 
                                 data = {this.state.weightData}
@@ -54,6 +60,10 @@ class Profile extends React.Component {
                             />
 
                             <DBResults 
+                                id = {this.props.id}
+                            />
+
+                            <SavedRecipes 
                                 id = {this.props.id}
                             />
 

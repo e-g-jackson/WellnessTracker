@@ -33,10 +33,6 @@ class App extends Component {
   }
 
   render() {
-    // const childProps = {
-    //   isAuthenticated: this.state.isAuthenticated,
-    //   userHasAuthenticated: this.userHasAuthenticated
-    // };
 
     if(this.state.isAuthenticated === false){
       return(
@@ -114,9 +110,11 @@ class App extends Component {
 
           <Route exact path="/recipes" render={() => {
             return (
-              <Recipes  
-                id={this.state.userData}
-              />
+              <div>
+                <Recipes  
+                  id={this.state.userData}
+                />
+              </div>
             )
           }} />
         </div>

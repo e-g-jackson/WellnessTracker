@@ -54,6 +54,16 @@ module.exports = (app, db) => {
         })
     })
 
+    app.get('/db/getRecipes/:id', (req, res) => {
+        db.recipe.find({userId: req.params.id}, function(err, result){
+            if(err){
+                throw err;
+            } else {
+                res.json(result);
+            }
+        })
+    })
+
     //creates new user
     app.post('/db/newuser', (req, res) => {
         console.log(req.body)
@@ -77,4 +87,12 @@ module.exports = (app, db) => {
         res.send('Weight entry received!')
         });
     });
+
+    //post recipe data
+    app.post('/db/postrecipe', function(req, res){
+        console.log(req.body);
+        db.recipe.create(req.body).then(() => {
+            res.send('recipe data saved!')
+        })
+    })
 };

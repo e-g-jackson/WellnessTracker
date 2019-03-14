@@ -1,14 +1,16 @@
 import React from 'react';
 import axios from 'axios';
+import SavedRecipes from './SavedRecipes'
 import { Animated } from "react-animated-css";
 
 var key = '30e77a591ab3a009323f28be315be367';
-// var key = F2F_KEY;
+// key = F2F_KEY;
 
 const style = {
     header:{
         backgroundColor: "rgb(170, 37, 37)",
-        color: "white"
+        color: "white",
+        width: "100%"
     },
     image:{
         height: "200px",
@@ -37,27 +39,37 @@ class Recipes extends React.Component {
                     console.log(x);
                     return(
                         <Animated key = {x.recipe_id} animationIn="fadeInUp" isVisible={true}>
-
-                        <div className = 'row mb-4' style = {style.body}>
-                            <img className = 'col-4 img-fluid' src = {x.image_url} alt = {x.title} style = {style.image} />
-                            <div className = 'col-8'>
-                                <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">
-                                    <h2 style = {style.header} dangerouslySetInnerHTML = {{__html: x.title}}>
-                                        {/* {x.title} */}
-                                    </h2>
-                                </a>
-                                <p>
-                                    <em>Published By: <a href = {x.publisher_url}>{x.publisher}</a></em>
-                                </p>
-                                <p>
-                                    Recipe Id: {x.recipe_id}
-                                </p>
-                                <p> 
-                                    Link: <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">{x.source_url}</a>
-                                </p>
+                            <div className = 'row mb-4' style = {style.body}>
+                                <img className = 'col-4 img-fluid' src = {x.image_url} alt = {x.title} style = {style.image} />
+                                <div className = 'col-8'>
+                                    <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">
+                                        <h2 className = "p-3" style = {style.header} dangerouslySetInnerHTML = {{__html: x.title}}></h2>
+                                    </a>
+                                    <p className = "pl-3">
+                                        <em>Published By: <a href = {x.publisher_url}>{x.publisher}</a></em>
+                                    </p>
+                                    <p className = "pl-3">
+                                        Recipe Id: {x.recipe_id}
+                                    </p>
+                                    <p className = "pl-3"> 
+                                        Link: <a href = {x.source_url} target = "_blank" rel="noopener noreferrer">{x.source_url}</a>
+                                    </p>
+                                    <button
+                                        className = "btn btn-sm btn-secondary"
+                                        onClick = {() => {
+                                            var data = {
+                                                userId: this.props.id._id,
+                                                title: x.title,
+                                                publisher: x.publisher,
+                                                publisherUrl: x.publisher_url,
+                                                recipeId: x.recipe_id,
+                                                link: x.source_url,
+                                            }
+                                            this.saveRecipe(data)
+                                        }} 
+                                    >Save Recipe</button>
+                                </div>
                             </div>
-                        </div>
-
                         </Animated>
                     );
                 });
@@ -70,11 +82,24 @@ class Recipes extends React.Component {
                 })
             }).catch(function(error){throw error});
     }
+
+    saveRecipe(recipe){
+        console.log(recipe)
+        axios.post("/db/postrecipe", recipe)
+            .then(() => {alert(recipe.title + ' recipe saved!')})
+            .catch((error) => {if (error) throw error})
+    }
+
     render(){
         if (this.state.recipes === "") {
             return(
                 <Animated animationIn="fadeIn" isVisible={true}>
                     <div className = 'container bg-white py-3 px-5'>
+                        <div className = 'row'>
+                            <SavedRecipes 
+                                id = {this.props.id}    
+                            />
+                        </div>
                         <div className = 'row'>
                             <input 
                                 className = 'form-input mx-2'
@@ -98,6 +123,14 @@ class Recipes extends React.Component {
             return(
                 <Animated animationIn="fadeIn" isVisible={true}>
                     <div className = 'container bg-white py-3 px-5'>
+                        <div className = 'row'>
+                            <div style = {{width: "100%"}}>
+                                <SavedRecipes 
+                                    id = {this.props.id}    
+                                />
+
+                            </div>
+                        </div>
                         <div>
                             <input 
                                 onChange = {
