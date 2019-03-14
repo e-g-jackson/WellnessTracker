@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-// var id = mongoose.Types.ObjectId();
 
 var Schema = mongoose.Schema;
 
@@ -24,6 +23,10 @@ var newUserSchema = new Schema({
     weightLog:{
         type: Schema.Types.ObjectId,
         ref: "Weight",
+    },
+    recipeLog:{
+        type: Schema.Types.ObjectId,
+        ref: "Recipe"
     }
 })
 

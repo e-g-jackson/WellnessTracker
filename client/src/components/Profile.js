@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import SavedRecipes from "./SavedRecipes"
 import Graph from "./Graph";
 import WeightTable from "./WeightTable";
 import PieChart from "./PieChart";
@@ -38,6 +39,11 @@ class Profile extends React.Component {
         return (
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
                 <div className = 'container bg-white'>
+                    <div className = 'row'>
+                        <SavedRecipes 
+                            id = {this.props.id}
+                        />
+                    </div>
                     <div className = 'row'>
                         <div className = 'col-xs-12 col-md-6'>
                             <Graph 
