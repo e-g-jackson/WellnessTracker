@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import Graph from "./Graph";
+import WeightTable from "./WeightTable";
+import PieChart from "./PieChart";
 import DBResults from "./DBResults";
 import {Animated} from "react-animated-css";
 
@@ -10,7 +12,6 @@ class Profile extends React.Component {
         weightData: null
     }
     componentDidMount(){
-        console.log(this.props.id)
         //GET Weight Data
         axios.get("/db/getweights/" + this.props.id._id)
             .then(response => {
@@ -35,56 +36,30 @@ class Profile extends React.Component {
     }
     render() {
         return (
-          <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
-            <div className = 'container bg-white'>
-                <div className = 'row'>
-                    <div className = 'col-6'>
-                        <Graph 
-                            data = {this.state.weightData}
-                        />
-                    </div>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+                <div className = 'container bg-white'>
+                    <div className = 'row'>
+                        <div className = 'col-xs-12 col-md-6'>
+                            <Graph 
+                                data = {this.state.weightData}
+                            />
+                            <WeightTable 
+                                id = {this.props.id} 
+                            />
+                        </div>
 
-                    <div className = 'col-6 py-3'>
-                        <DBResults 
-                            id = {this.props.id}
-                        />
+                        <div className = 'col-xs-12 col-md-6 py-3'>
+                            <PieChart
+                                id = {this.props.id}
+                            />
 
+                            <DBResults 
+                                id = {this.props.id}
+                            />
+
+                        </div>
                     </div>
                 </div>
-            </div>
-{/*            // <div className="container">
-            //     <div className="row">
-            //         <div className="col-md-3"></div>
-            //         <div className="col-md-6">
-            //             <h2>Hello (Username!)</h2>
-            //             <div className="card">
-            //                 <div className="card-body">
-            //                     <h4>Fill in the information below:</h4>
-            //                     <form>
-            //                         <div className="form-group">
-            //                             <label for="weight">Weight:</label>
-            //                             <input type="weight" class="form-control" id="weight" aria-describedby="weight" placeholder="Enter Weight"/>
-            //                         </div>
-            //                         <div class="form-group">
-            //                             <label for="height">Height:</label>
-            //                             <input type="height" class="form-control" id="height" placeholder="Enter Height"/>
-            //                         </div>
-            //                         <div className="form-group">
-            //                             <label for="age">Age:</label>
-            //                             <input type="age" class="form-control" id="age" aria-describedby="age" placeholder="Enter Age"/>
-            //                         </div>
-            //                         <div class="form-group">
-            //                             <label for="goalWeight">Goal Weight:</label>
-            //                             <input type="goalWeight" class="form-control" id="goalWeight" placeholder="Enter Goal Weight"/>
-            //                         </div>
-            //                         <button type="button" className="btn btn-secondary">Submit</button>
-            //                     </form>
-            //                 </div>
-            //             </div>
-            //         </div>
-            //         <div className="col-md-3"></div>
-            //     </div>
-        // </div>*/}
             </Animated>
 
         );

@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
-import DBResults from "./DBResults"
-// import helper from "../../../routes/dataHelper"
-// import $ from "jquery";
-import {Animated} from "react-animated-css";
+import DBResults from "./DBResults";
+import PieChart from "./PieChart";
+import { Animated } from "react-animated-css";
 
 class Food extends React.Component {
     state = {
         foodName: "",
         meal: "Breakfast",
         foodType: "Protein",
+        portion: "1",
         userId: this.props.id._id
     }
 
@@ -28,8 +28,8 @@ class Food extends React.Component {
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
+                    {/* <div className="col-md-2"></div> */}
+                    <div className="col-md-12">
                     <h2>Daily Food Tracker</h2>
                     <h3>Current Date</h3>
                         <div className="card">
@@ -82,6 +82,22 @@ class Food extends React.Component {
                                         <option value="Fruit">Fruit</option>
                                         <option value="Vegetable">Vegetable</option>
                                     </select>
+                                    <select 
+                                        name="poriton" 
+                                        className = "mx-3" 
+                                        id = "portion" 
+                                        size="4"
+                                        onChange = {(event) => {
+                                            console.log(event.target.value);
+                                            this.setState({
+                                                portion: event.target.value
+                                            });
+                                        }}>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
                                     <br/>
                                     <br/>
                                     <button 
@@ -94,6 +110,13 @@ class Food extends React.Component {
                             </div>
                         </div>
                         <br/>
+                        <div className="card mb-4">
+                            <div className="card-body">
+                               <PieChart 
+                                    id={this.props.id}
+                                />
+                            </div>
+                        </div>
                         <div className="card">
                             <div className="card-body">
                                <DBResults 
@@ -102,7 +125,7 @@ class Food extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3"></div>
+                    {/* <div className="col-md-2"></div> */}
                 </div>
             </div>
             </Animated>

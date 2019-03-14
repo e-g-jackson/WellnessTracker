@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Animated } from "react-animated-css";
 
-var key = F2F_KEY;
+var key = '30e77a591ab3a009323f28be315be367';
+// var key = F2F_KEY;
 
 const style = {
     header:{
@@ -26,9 +27,6 @@ class Recipes extends React.Component {
         recipes: "",
         input: ""
     }
-
-    // componentDidMount(){
-    // }
 
     getData(){
         let recipes = [];
@@ -73,51 +71,50 @@ class Recipes extends React.Component {
             }).catch(function(error){throw error});
     }
     render(){
-        console.log(this.state)
         if (this.state.recipes === "") {
             return(
                 <Animated animationIn="fadeIn" isVisible={true}>
-                <div className = 'container bg-white py-3 px-5'>
-                    <div className = 'row'>
-                        <input 
-                            className = 'form-input mx-2'
-                            onChange = {
-                                (event) => {this.setState({input: event.target.value})}
-                            }
-                        />
-                        <button
-                            className = 'btn btn-secondary mx-3'
-                            onClick = {() => {this.getData()}}
-                            >Submit
-                        </button>
+                    <div className = 'container bg-white py-3 px-5'>
+                        <div className = 'row'>
+                            <input 
+                                className = 'form-input mx-2'
+                                onChange = {
+                                    (event) => {this.setState({input: event.target.value})}
+                                }
+                            />
+                            <button
+                                className = 'btn btn-secondary mx-3'
+                                onClick = {() => {this.getData()}}
+                                >Submit
+                            </button>
+                        </div>
+                        <div>
+                            <h3 style = {style.text}>Enter a value into the search bar and click submit to find new recipes!</h3>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style = {style.text}>Enter a value into the search bar and click submit to find new recipes!</h3>
-                    </div>
-                </div>
                 </Animated>
             )
         } else {
             return(
                 <Animated animationIn="fadeIn" isVisible={true}>
-                <div className = 'container bg-white py-3 px-5'>
-                    <div>
-                        <input 
-                            onChange = {
-                                (event) => {this.setState({input: event.target.value})}
-                            }
-                        />
-                        <button
-                            className = 'btn btn-secondary mx-3'
-                            onClick = {() => {this.getData()}}
-                            >Submit
-                        </button>
+                    <div className = 'container bg-white py-3 px-5'>
+                        <div>
+                            <input 
+                                onChange = {
+                                    (event) => {this.setState({input: event.target.value})}
+                                }
+                            />
+                            <button
+                                className = 'btn btn-secondary mx-3'
+                                onClick = {() => {this.getData()}}
+                                >Submit
+                            </button>
+                        </div>
+                        <div className = 'container'>
+                            <h1 style = {style.text}>Recipe Results:</h1>
+                            {this.state.recipes}
+                        </div>
                     </div>
-                    <div className = 'container'>
-                        <h1 style = {style.text}>Recipe Results:</h1>
-                        {this.state.recipes}
-                    </div>
-                </div>
                 </Animated>
             )
         }

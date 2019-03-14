@@ -2,7 +2,8 @@
   "name": "wellness-tracker-app",
   "version": "1.0.0",
   "engines": {
-    "node": "8.11.3"
+    "node": "8.11.3",
+    "npm": "5.6.0"
   },
   "description": "MERN Wellness Tracker App",
   "main": "server.js",
